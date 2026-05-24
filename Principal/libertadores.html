@@ -1,0 +1,414 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Once Caldas - Gloria Eterna</title>
+    
+    <style>
+        :root {
+            --verde-once: #008751;
+            --verde-oscuro: #005a36;
+            --rojo-once: #ce1126;
+            --dorado: #b8860b;
+            --negro-profundo: #121212;
+            --blanco-puro: #ffffff;
+            --texto-principal: #1a1a1a;
+            --texto-secundario: #444444;
+        }
+
+        body {
+    background-color: var(--negro-profundo);
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(0, 135, 81, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(206, 17, 38, 0.05) 0%, transparent 40%);
+    background-attachment: fixed;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+        .hero-libertadores {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../imagenes/imagen-5.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 120px 20px;
+    text-align: center;
+    color: white;
+    border-bottom: 8px solid var(--verde-once);
+    position: relative;
+}
+        .hero-libertadores::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+           background-color: #D4AF37;
+            transform: translateY(8px);
+        }
+
+        .hero-libertadores h1 {
+            font-size: 4rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 3px 3px 15px rgba(0,0,0,0.8);
+        }
+
+        .contenedor-principal {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .parrafo-seccion {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            background: var(--blanco-puro);
+            margin-bottom: 70px;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            align-items: stretch;
+            min-height: 480px;
+        }
+
+        .parrafo-seccion:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(0, 135, 81, 0.2);
+        }
+
+        .texto-momento {
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .capitulo {
+            color: var(--verde-once);
+            font-weight: 900;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+            border-bottom: 3px solid var(--rojo-once);
+            width: fit-content;
+        }
+
+        .texto-momento h2 {
+            font-size: 2.4rem;
+            margin: 0 0 25px 0;
+            color: var(--texto-principal);
+            line-height: 1.1;
+            border-left: 8px solid var(--rojo-once);
+            padding-left: 20px;
+        }
+
+        .texto-momento p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--texto-secundario);
+            text-align: justify;
+            margin: 0;
+        }
+
+        .foto-momento {
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .foto-momento img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .contenedor-boton {
+            text-align: center;
+            margin: 100px 0;
+        }
+
+        .boton-volver {
+            display: inline-block;
+            padding: 22px 70px;
+            background-color: var(--verde-once);
+            color: var(--blanco-puro) !important;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.3rem;
+            border-radius: 60px;
+            border: 2px solid var(--dorado);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .boton-volver:hover {
+            background-color: var(--rojo-once);
+            transform: scale(1.05);
+        }
+
+        
+        .footer-patrocinadores {
+    background-color: rgba(5, 60, 110, 0.95);
+    padding: 60px 20px 30px;
+    border-top: 3px solid var(--dorado-copa);
+    margin-top: 100px;
+}
+
+.contenedor-logos {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.texto-aliados {
+    color: var(--dorado-copa);
+    letter-spacing: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 40px;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.grilla-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.logo-item img {
+    height: 60px;
+    width: auto;
+    filter: none;
+    opacity: 1;
+    transition: all 0.4s ease;
+}
+
+.logo-item img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+}
+
+.copyright {
+    color: #eeb90c;
+    font-size: 0.8rem;
+    border-top: 1px solid #eaec4f;
+    padding-top: 25px;
+    margin-top: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .hero-libertadores {
+        padding: 60px 15px;
+    }
+
+    .hero-libertadores h1 {
+        font-size: 2rem !important;
+        letter-spacing: 2px;
+    }
+
+    .contenedor-principal {
+        margin: 30px auto;
+        padding: 0 15px;
+    }
+
+    .parrafo-seccion {
+        grid-template-columns: 1fr !important;
+        margin-bottom: 40px;
+        border-radius: 15px;
+        min-height: auto;
+    }
+
+    .parrafo-seccion:hover {
+        transform: translateY(-5px);
+    }
+
+    .foto-momento {
+        order: 1;
+        height: 220px;
+    }
+
+    .foto-momento img {
+        object-fit: cover;
+    }
+
+    .texto-momento {
+        order: 2;
+        padding: 25px 20px;
+    }
+
+    .texto-momento h2 {
+        font-size: 1.5rem !important;
+        padding-left: 12px;
+        margin-bottom: 15px;
+    }
+
+    .texto-momento p {
+        font-size: 0.95rem !important;
+        line-height: 1.6;
+        text-align: left;
+    }
+
+    .contenedor-boton {
+        margin: 50px 0;
+        padding: 0 15px;
+    }
+
+    .boton-volver {
+        padding: 15px 40px !important;
+        font-size: 1rem !important;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .footer-patrocinadores {
+        padding: 40px 15px 20px !important;
+        margin-top: 60px !important;
+    }
+
+    .texto-aliados {
+        font-size: 0.8rem !important;
+        letter-spacing: 3px !important;
+        margin-bottom: 25px !important;
+    }
+
+    .grilla-logos {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 30px !important;
+        justify-items: center !important;
+        align-items: center !important;
+        width: 100% !important;
+    }
+
+    .logo-item {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        height: 50px !important;
+    }
+
+    .logo-item img {
+        max-width: 100% !important;
+        height: auto !important;
+        max-height: 45px !important;
+        object-fit: contain !important;
+    }
+
+    .logo-item img:hover {
+        transform: none !important;
+    }
+
+    .copyright {
+        margin-top: 30px !important;
+        padding-top: 20px !important;
+        font-size: 0.75rem !important;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+
+    <header class="hero-libertadores">
+        <h1>Copa Libertadores 2004</h1>
+    </header>
+
+    <main class="contenedor-principal">
+
+        <section class="parrafo-seccion">
+            <div class="texto-momento">
+                <span class="capitulo">Primera Fase</span>
+                <h2>Liderazgo en la Fase de Grupos</h2>
+                <p>El Once Caldas comenzó su camino en el Grupo 2 enfrentando a Vélez Sarsfield, Maracaibo y Fénix. Gracias a un juego muy ordenado, el equipo logró clasificar como primero de su grupo con 13 puntos. En esta etapa, el Estadio Palogrande se empezó a hacer respetar como un fortín inalcanzable.</p>
+            </div>
+            <div class="foto-momento">
+                <img src="../imagenes/imagen-11.png" alt="Fase de Grupos">
+            </div>
+        </section>
+
+        <section class="parrafo-seccion">
+            <div class="texto-momento">
+                <span class="capitulo">Octavos y Cuartos</span>
+                <h2>Eliminando a los Gigantes</h2>
+                <p>Después de ganarle a Barcelona de Ecuador en los penaltis, nos tocó enfrentar al Santos de Brasil, que era el gran favorito. Con un gol de tiro libre de Arnulfo Valentierra en el último minuto del partido de vuelta, el Once Caldas dejó por fuera a los brasileños y se metió entre los mejores cuatro equipos del continente.</p>
+            </div>
+            <div class="foto-momento">
+                <img src="../imagenes/imagen-12.png" alt="Santos de Brasil">
+            </div>
+        </section>
+
+        <section class="parrafo-seccion">
+            <div class="texto-momento">
+                <span class="capitulo">Semifinal</span>
+                <h2>La Batalla contra São Paulo</h2>
+                <p>La semifinal ante São Paulo fue pura épica. Tras un empate valioso en Brasil, la vuelta en Manizales se definió en el último suspiro. Un gol agónico de Jorge Agudelo en el minuto 90 puso el 2-1 definitivo, desatando la locura en el Palogrande y clasificando al blanco-blanco a su primera gran final continental.</p>
+            </div>
+            <div class="foto-momento">
+                <img src="../imagenes/imagen-13.png" alt="Celebración Semifinal">
+            </div>
+        </section>
+
+        <section class="parrafo-seccion">
+            <div class="texto-momento">
+                <span class="capitulo">La Gran Final</span>
+                <h2>Campeones frente a Boca Juniors</h2>
+                <p>En la final contra el histórico Boca Juniors, el Once Caldas demostró su casta. Luego de empatar 0-0 en la Bombonera y 1-1 en Manizales, la gloria se decidió desde el punto penal. Juan Carlos Henao se convirtió en leyenda al atajar los cobros argentinos, dándole al Once Caldas su primera Copa Libertadores el 1 de julio de 2004.</p>
+            </div>
+            <div class="foto-momento">
+                <img src="../imagenes/imagen-9.png" alt="Once Caldas Campeón Libertadores 2004">
+            </div>
+        </section>
+
+        <div class="contenedor-boton">
+            <a href="../index.html" class="boton-volver">Volver al Inicio</a>
+        </div>
+
+    </main>
+
+    <footer class="footer-patrocinadores">
+        <div class="contenedor-logos">
+            <p class="texto-aliados">NUESTROS ALIADOS</p>
+            <div class="grilla-logos">
+                <div class="logo-item"><img src="../imagenes/betplay.png" alt="Sponsor"></div>
+                <div class="logo-item"><img src="../imagenes/aguardiente.png" alt="Sponsor"></div>
+                <div class="logo-item"><img src="../imagenes/chery.png" alt="Sponsor"></div>
+                <div class="logo-item"><img src="../imagenes/colanta.png" alt="Sponsor"></div>
+                <div class="logo-item"><img src="../imagenes/manizales.png" alt="Sponsor"></div>
+                <div class="logo-item"><img src="../imagenes/pool.png" alt="Sponsor"></div>
+                <div class="logo-item"><img src="../imagenes/reebok.png" alt="Sponsor"></div>
+                <div class="logo-item"><img src="../imagenes/wakate.png" alt="Sponsor"></div>
+            </div>
+            <p class="copyright">&copy; 2026 Once Caldas S.A. - Orgullo de Manizales</p>
+        </div>
+    </footer>
+
+
+
+</body>
+</html>

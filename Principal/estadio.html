@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadio Palogrande | Once Caldas</title>
+    
+
+    <style>
+        :root {
+    --verde-once: #008751;
+    --dorado-copa: #D4AF37;
+    --blanco: #ffffff;
+    --negro-transparente: rgba(0, 0, 0, 0.85);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #000;
+
+    background-image: url('../imagenes/fondo-estadio-oscuro.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+}
+
+
+.overlay-fondo {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(circle, transparent 20%, rgba(0,0,0,0.8) 100%);
+    z-index: -1;
+}
+
+.contenedor-principal {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.encabezado {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.encabezado h1 {
+    font-size: 4.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.linea-decorativa {
+    width: 150px;
+    height: 6px;
+    background: var(--dorado-copa);
+    margin: 10px auto;
+}
+
+.tagline {
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    color: var(--dorado-copa);
+}
+
+.tarjeta-grande {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 50px;
+    border-radius: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.info-texto h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--dorado-copa);
+}
+
+.info-texto p {
+    font-size: 1.3rem;
+    line-height: 1.8;
+}
+
+
+.grilla-datos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.dato-caja {
+    background: var(--negro-transparente);
+    border-bottom: 4px solid var(--verde-once);
+    padding: 30px;
+    border-radius: 20px;
+    min-width: 250px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.dato-caja:hover {
+    transform: translateY(-10px);
+    border-color: var(--dorado-copa);
+}
+
+.numero {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--dorado-copa);
+}
+
+.etiqueta {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+.galeria-estadio {
+    display: flex;
+    flex-direction: column; 
+    gap: 50px;
+    margin-bottom: 80px;
+}
+
+.foto-estadio-pro {
+    width: 100%;       
+    height: 650px;      
+    position: relative;
+    overflow: hidden;
+    border-radius: 40px; 
+    border: 3px solid rgba(212, 175, 55, 0.3); 
+}
+
+.foto-estadio-pro img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: 0.8s;  
+}
+
+.foto-estadio-pro:hover img {
+    transform: scale(1.1);
+}
+
+.caption {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(transparent, black);
+    text-align: center;
+    font-weight: bold;
+}
+
+
+.contenedor-boton {
+    text-align: center;
+}
+
+.boton-pro {
+    display: inline-block;
+    padding: 20px 60px;
+    background: var(--blanco);
+    color: #000;
+    text-decoration: none;
+    font-weight: 900;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.boton-pro:hover {
+    background: var(--verde-once);
+    color: white;
+    box-shadow: 0 0 20px var(--verde-once);
+}
+
+.footer-patrocinadores {
+    background-color: rgba(5, 60, 110, 0.95);
+    padding: 60px 20px 30px;
+    border-top: 3px solid var(--dorado-copa);
+    margin-top: 100px;
+}
+
+.contenedor-logos {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.texto-aliados {
+    color: var(--dorado-copa);
+    letter-spacing: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 40px;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.grilla-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.logo-item img {
+    height: 60px;
+    width: auto;
+    filter: none;
+    opacity: 1;
+    transition: all 0.4s ease;
+}
+
+.logo-item img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+}
+
+.copyright {
+    color: #eeb90c;
+    font-size: 0.8rem;
+    border-top: 1px solid #eaec4f;
+    padding-top: 25px;
+    margin-top: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+@media (max-width: 640px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .contenedor-principal {
+        padding: 30px 12px !important;
+    }
+
+    .encabezado {
+        margin-bottom: 30px !important;
+    }
+
+    .encabezado h1 {
+        font-size: 2.2rem !important;
+        text-shadow: 1px 1px 5px rgba(0,0,0,0.6) !important;
+    }
+
+    .linea-decorativa {
+        width: 100px !important;
+        height: 4px !important;
+    }
+
+    .tagline {
+        font-size: 1rem !important;
+        letter-spacing: 1px !important;
+    }
+
+    
+    .tarjeta-grande {
+        padding: 25px 15px !important;
+        border-radius: 20px !important;
+        margin-bottom: 30px !important;
+    }
+
+    .info-texto h2 {
+        font-size: 1.6rem !important;
+        margin-bottom: 12px !important;
+    }
+
+    .info-texto p {
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+    }
+
+    
+    .grilla-datos {
+        gap: 15px !important;
+        margin-bottom: 40px !important;
+    }
+
+    .dato-caja {
+        padding: 20px !important;
+        min-width: 100% !important; 
+        border-radius: 15px !important;
+    }
+
+    .numero {
+        font-size: 1.8rem !important;
+    }
+
+    .etiqueta {
+        font-size: 0.8rem !important;
+    }
+
+    
+    .galeria-estadio {
+        gap: 25px !important;
+        margin-bottom: 50px !important;
+    }
+
+    
+    .foto-estadio-pro {
+        height: 280px !important;
+        border-radius: 20px !important;
+    }
+
+    .foto-estadio-pro:hover img {
+        transform: none !important; 
+    }
+
+    .caption {
+        font-size: 0.9rem !important;
+        padding: 12px !important;
+    }
+
+    .boton-pro {
+        width: 100% !important;
+        max-width: 280px;
+        padding: 15px 30px !important;
+        font-size: 0.9rem !important;
+    }
+
+   
+    .footer-patrocinadores {
+        padding: 40px 15px 20px !important;
+        margin-top: 60px !important;
+    }
+
+    .texto-aliados {
+        font-size: 0.8rem !important;
+        letter-spacing: 3px !important;
+        margin-bottom: 25px !important;
+    }
+
+    .grilla-logos {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 30px !important;
+        justify-items: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        padding: 0 10px !important;
+        box-sizing: border-box !important;
+    }
+
+    .logo-item {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        height: 50px !important;
+    }
+
+    .logo-item img {
+        max-width: 100% !important;
+        height: auto !important;
+        max-height: 45px !important;
+        object-fit: contain !important;
+    }
+
+    .logo-item img:hover {
+        transform: none !important;
+    }
+
+    .copyright {
+        margin-top: 30px !important;
+        padding-top: 20px !important;
+        font-size: 0.75rem !important;
+    }
+}
+
+
+    </style>
+   
+</head>
+<body>
+
+    <div class="overlay-fondo"></div>
+
+    <main class="contenedor-principal">
+        <header class="encabezado">
+            <h1>Estadio Palogrande</h1>
+            <div class="linea-decorativa"></div>
+            <p class="tagline">El Templo del Campeón de América</p>
+        </header>
+
+        <section class="seccion-estadio">
+            <div class="tarjeta-grande">
+                <div class="info-texto">
+                    <h2>Mística y Gloria</h2>
+                    <p>Inaugurado en su forma actual en 1994, el Palogrande no es solo cemento; es el lugar donde el Once Caldas escribió la página más gloriosa del fútbol colombiano al levantar la Copa Libertadores en 2004.</p>
+                </div>
+            </div>
+
+            <div class="grilla-datos">
+                <div class="dato-caja">
+                    <span class="numero">28,678</span>
+                    <span class="etiqueta">Espectadores</span>
+                </div>
+                <div class="dato-caja">
+                    <span class="numero">2,150</span>
+                    <span class="etiqueta">Metros de Altura</span>
+                </div>
+                <div class="dato-caja">
+                    <span class="numero">Libertadores</span>
+                    <span class="etiqueta">Sede Final 2004</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="galeria-estadio">
+            <div class="foto-estadio-pro">
+                <img src="../imagenes/norte.png" alt="Tribuna Palogrande">
+                <div class="caption">Holocausto Norte: El alma del estadio</div>
+            </div>
+            <div class="foto-estadio-pro">
+                <img src="../imagenes/imagen-4.png" alt="Hogar del Once Caldas">
+                <div class="caption">Hogar del Once Caldas</div>
+            </div>
+             <div class="foto-estadio-pro">
+                <img src="../imagenes/estadio-de-noche.png" alt="Noches de Gala">
+                <div class="caption">Noches de Gala</div>
+            </div>
+        </section>
+
+        <div class="contenedor-boton">
+            <a href="../index.html" class="boton-pro">REGRESAR AL INICIO</a>
+        </div>
+    </main>
+
+    <footer class="footer-patrocinadores">
+        <div class="contenedor-logos">
+            <p class="texto-aliados">NUESTROS ALIADOS</p>
+            <div class="grilla-logos">
+                <div class="logo-item"><img src="../imagenes/betplay.png" alt="BetPlay"></div>
+                <div class="logo-item"><img src="../imagenes/reebok.png" alt="Reebok"></div>
+                <div class="logo-item"><img src="../imagenes/colanta.png" alt="Colanta"></div>
+                <div class="logo-item"><img src="../imagenes/aguardiente.png" alt="Aguardiente"></div>
+                <div class="logo-item"><img src="../imagenes/chery.png" alt="Chery"></div>
+                <div class="logo-item"><img src="../imagenes/pool.png" alt="Pool"></div>
+                <div class="logo-item"><img src="../imagenes/wakate.png" alt="Wakate"></div>
+                <div class="logo-item"><img src="../imagenes/manizales.png" alt="Manizales"></div>
+            </div>
+            <p class="copyright">&copy; 2026 Once Caldas S.A. - Orgullo de Manizales</p>
+        </div>
+    </footer>
+
+</body>
+</html>

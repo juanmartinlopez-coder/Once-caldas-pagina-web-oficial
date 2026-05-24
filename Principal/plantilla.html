@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla Oficial 2026 - Once Caldas</title>
+    <link rel="stylesheet" href="responsive.css">
+    <style>
+        
+        body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f1f5f9;
+    margin: 0;
+    padding: 0;
+    color: #1e293b;
+}
+
+.banner-plantilla {
+    background: linear-gradient(135deg, #005c36 0%, #008751 100%);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.banner-plantilla h1 {
+    margin: 0;
+    font-size: 2.6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.banner-plantilla p {
+    margin: 10px 0 0 0;
+    font-size: 1.1rem;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+.contenedor-posicion {
+    max-width: 1200px;
+    margin: 40px auto 10px auto;
+    padding: 0 20px;
+}
+
+.titulo-posicion {
+    font-size: 1.6rem;
+    color: #005c36;
+    text-transform: uppercase;
+    font-weight: 800;
+    border-bottom: 3px solid #008751;
+    padding-bottom: 8px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.grilla-jugadores {
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.tarjeta-jugador {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px; 
+    border: 1px solid #e2e8f0;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tarjeta-jugador:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+.numero-dorsal {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #dc2626; 
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    line-height: 1;
+}
+
+.silueta-contenedor {
+    width: 180px;      
+    height: 180px;     
+    background-color: #e2e8f0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    overflow: hidden;
+    border: 3px solid #008751;
+}
+
+.silueta-contenedor img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.barra-nombre {
+    width: 100%;
+    background-color: #dc2626; 
+    color: white;
+    text-align: center;
+    padding: 14px 0;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.modal-perfil {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-perfil.abierto {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.contenido-modal {
+    background-color: white;
+    padding: 45px 35px 35px 35px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 440px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    position: relative;
+    text-align: center;
+    animation: popUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popUp {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.boton-cerrar {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2.2rem;
+    color: #94a3b8;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.boton-cerrar:hover { 
+    color: #dc2626; 
+    transform: scale(1.1);
+}
+
+.modal-titulo {
+    font-size: 1.8rem;
+    color: #005c36;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.modal-sub {
+    font-size: 1.1rem;
+    color: #dc2626;
+    font-weight: 700;
+    margin: 5px 0 25px 0;
+}
+
+.info-ficha {
+    text-align: left;
+    background-color: #f8fafc;
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 5px solid #008751;
+}
+
+.info-ficha p {
+    margin: 10px 0;
+    font-size: 1.05rem;
+    color: #334155;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed #e2e8f0;
+    padding-bottom: 5px;
+}
+
+.info-ficha strong { color: #0f172a; }
+
+.seccion-navegacion {
+    text-align: center;
+    margin: 60px 0;
+}
+
+.btn-volver {
+    display: inline-block;
+    background-color: #1e293b;
+    color: white;
+    text-decoration: none;
+    padding: 14px 35px;
+    font-weight: bold;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    transition: background-color 0.2s;
+}
+
+.btn-volver:hover { background-color: #008751; }
+
+.footer-patrocinadores {
+    background-color: rgba(5, 60, 110, 0.95);
+    padding: 60px 20px 30px;
+    border-top: 3px solid #eeb90c;
+    margin-top: 100px;
+}
+
+.contenedor-logos {
+    max-width: 1300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.texto-aliados {
+    color: #eeb90c;
+    letter-spacing: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 40px;
+    opacity: 0.8;
+}
+
+.grilla-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.logo-item img {
+    height: 60px;
+    width: auto;
+    filter: none;
+    opacity: 1;
+    transition: all 0.4s ease;
+}
+
+.logo-item img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+}
+
+.copyright {
+    color: #eeb90c;
+    font-size: 0.8rem;
+    border-top: 1px solid #eaec4f;
+    padding-top: 25px;
+    margin-top: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .banner-plantilla {
+        padding: 25px 15px !important;
+    }
+
+    .banner-plantilla h1 {
+        font-size: 1.6rem !important;
+    }
+
+    .banner-plantilla p {
+        font-size: 0.9rem !important;
+    }
+
+    .contenedor-posicion {
+        margin: 20px auto 5px auto !important;
+        padding: 0 10px !important;
+    }
+
+    .titulo-posicion {
+        font-size: 1.1rem !important;
+        margin-bottom: 12px !important;
+        padding-bottom: 4px !important;
+    }
+
+    .grilla-jugadores {
+        padding: 0 10px !important;
+        gap: 8px !important; 
+        grid-template-columns: repeat(3, 1fr) !important;
+        margin-bottom: 20px !important;
+    }
+
+    .tarjeta-jugador {
+        padding-top: 22px !important;
+        border-radius: 6px !important;
+    }
+
+    .tarjeta-jugador:hover {
+        transform: translateY(-2px) !important;
+    }
+
+    .silueta-contenedor {
+        width: 70px !important;
+        height: 70px !important;
+        margin-bottom: 10px !important;
+        border: 2px solid #008751 !important;
+    }
+
+    .numero-dorsal {
+        font-size: 1.1rem !important;
+        top: 6px !important;
+        left: 8px !important;
+    }
+
+    .barra-nombre {
+        padding: 6px 2px !important;
+        font-size: 0.72rem !important;
+        line-height: 1.2 !important;
+        min-height: 28px !important; 
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .contenido-modal {
+        padding: 30px 20px 20px 20px !important;
+        width: 85% !important;
+    }
+
+    .boton-cerrar {
+        top: 5px !important;
+        right: 15px !important;
+        font-size: 1.8rem !important;
+    }
+
+    .modal-titulo {
+        font-size: 1.3rem !important;
+    }
+
+    .modal-sub {
+        font-size: 0.9rem !important;
+        margin-bottom: 12px !important;
+    }
+
+    .info-ficha {
+        padding: 12px !important;
+    }
+
+    .info-ficha p {
+        font-size: 0.85rem !important;
+        margin: 8px 0 !important;
+    }
+
+    .seccion-navegacion {
+        margin: 35px 0 !important;
+        padding: 0 15px !important;
+    }
+
+    .btn-volver {
+        width: 100% !important;
+        max-width: 260px;
+        padding: 12px 20px !important;
+        font-size: 0.9rem !important;
+        text-align: center;
+    }
+
+    .footer-patrocinadores {
+        padding: 40px 15px 20px !important;
+        margin-top: 60px !important;
+    }
+
+    .texto-aliados {
+        font-size: 0.8rem !important;
+        letter-spacing: 3px !important;
+        margin-bottom: 25px !important;
+    }
+
+    .grilla-logos {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 30px !important;
+        justify-items: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        padding: 0 10px !important;
+        box-sizing: border-box !important;
+    }
+
+    .logo-item {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        height: 50px !important;
+    }
+
+    .logo-item img {
+        max-width: 100% !important;
+        height: auto !important;
+        max-height: 45px !important;
+        object-fit: contain !important;
+    }
+
+    .logo-item img:hover {
+        transform: none !important;
+    }
+
+    .copyright {
+        margin-top: 30px !important;
+        padding-top: 20px !important;
+        font-size: 0.75rem !important;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <main class="contenedor-principal"> 
+        <div class="banner-plantilla">
+            <h1>Nómina Oficial 2026</h1>
+            <p>Plantel profesional del Once Caldas</p>
+        </div>
+
+        <div class="contenedor-posicion">
+            <div class="titulo-posicion">Porteros</div>
+        </div>
+        <div class="grilla-jugadores">
+            <div class="tarjeta-jugador" onclick="abrirFicha('James Aguirre', '12', 'Colombiano', '34 Años', '1.82 m', 'Guardameta Principal', '1,440 min')">
+                <div class="numero-dorsal">12</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/aguirre.png" alt="James Aguirre">
+                </div>
+                <div class="barra-nombre">James Aguirre</div>
+            </div>
+            <div class="tarjeta-jugador" onclick="abrirFicha('Juan Esteban Gallego', '25', 'Colombiano', '21 Años', '1.85 m', 'Guardameta Alterno', '360 min')">
+                <div class="numero-dorsal">25</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/gallego.png" alt="Juan Esteban Gallego">
+                </div>
+                <div class="barra-nombre">Juan Esteban Gallego</div>
+            </div>
+            <div class="tarjeta-jugador" onclick="abrirFicha('Joan Parra', '30', 'Colombiano', '25 Años', '1.84 m', 'Guardameta Proyección', '180 min')">
+                <div class="numero-dorsal">99</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/parra.png" alt="Joan Parra">
+                </div>
+                <div class="barra-nombre">Joan Parra</div>
+            </div>
+        </div>
+
+        <div class="contenedor-posicion">
+            <div class="titulo-posicion">Defensas Centrales</div>
+        </div>
+        <div class="grilla-jugadores">
+            <div class="tarjeta-jugador" onclick="abrirFicha('Jorge Cardona', '2', 'Colombiano', '26 Años', '1.84 m', 'Defensa Central', '1,210 min')">
+                <div class="numero-dorsal">2</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/cardona.png" alt="Jorge Cardona">
+                </div>
+                <div class="barra-nombre">Jorge Cardona</div>
+            </div>
+            <div class="tarjeta-jugador" onclick="abrirFicha('Kevin Cuesta', '23', 'Colombiano', '26 Años', '1.87 m', 'Defensa Central', '1,150 min')">
+                <div class="numero-dorsal">23</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/kevin-cuesta.png" alt="Kevin Cuesta">
+                </div>
+                <div class="barra-nombre">Kevin Cuesta</div>
+            </div>
+            <div class="tarjeta-jugador" onclick="abrirFicha('Juan David Cuesta', '22', 'Colombiano', '28 Años', '1.80 m', 'Defensa Central', '940 min')">
+                <div class="numero-dorsal">22</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/cuesta.png" alt="Juan David Cuesta">
+                </div>
+                <div class="barra-nombre">Juan D. Cuesta</div>
+            </div>
+            <div class="tarjeta-jugador" onclick="abrirFicha('Juan Castaño', '16', 'Colombiano', '27 Años', '1.83 m', 'Defensa Central', '450 min')">
+                <div class="numero-dorsal">16</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/castaño.png" alt="Juan Castaño">
+                </div>
+                <div class="barra-nombre">Juan Castaño</div>
+            </div>
+            <div class="tarjeta-jugador" onclick="abrirFicha('Léyder Morán', '67', 'Colombiano', '21 Años', '1.81 m', 'Defensa Central', '320 min')">
+                <div class="numero-dorsal">67</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/moran.png" alt="Léyder Morán">
+                </div>
+                <div class="barra-nombre">Léyder Morán</div>
+            </div>
+            <div class="tarjeta-jugador" onclick="abrirFicha('Jáider Riquett', '18', 'Colombiano', '36 Años', '1.84 m', 'Defensa Central', '1,080 min')">
+                <div class="numero-dorsal">18</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/jaider.png" alt="Jáider Riquett">
+                </div>
+                <div class="barra-nombre">Jáider Riquett</div>
+            </div>
+        </div>
+
+        <div class="contenedor-posicion">
+            <div class="titulo-posicion">Defensas Laterales</div>
+        </div>
+        <div class="grilla-jugadores">
+            <div class="tarjeta-jugador" onclick="abrirFicha('Efraín Navarro', '4', 'Colombiano', '26 Años', '1.75 m', 'Lateral Derecho', '1,110 min')">
+                <div class="numero-dorsal">4</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/navarro.png" alt="Efraín Navarro">
+                </div>
+                <div class="barra-nombre">Efraín Navarro</div>
+            </div>
+            <div class="tarjeta-jugador" onclick="abrirFicha('Yeferson Rodallega', '13', 'Colombiano', '25 Años', '1.79 m', 'Lateral Izquierdo', '920 min')">
+                <div class="numero-dorsal">13</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/rodallega.png" alt="Yeferson Rodallega">
+                </div>
+                <div class="barra-nombre">Y. Rodallega</div>
+            </div>
+            <div class="tarjeta-jugador" onclick="abrirFicha('Juan Pablo Patiño', '33', 'Colombiano', '27 Años', '1.78 m', 'Lateral Izquierdo', '860 min')">
+                <div class="numero-dorsal">33</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/patino.png" alt="Juan Patiño">
+                </div>
+                <div class="barra-nombre">Juan Patiño</div>
+            </div>
+        </div>
+
+        <div class="contenedor-posicion">
+            <div class="titulo-posicion">Mediocampistas</div>
+        </div>
+        <div class="grilla-jugadores">
+            <div class="tarjeta-jugador" onclick="abrirFicha('Andrés Roa', '20', 'Colombiano', '32 Años', '1.78 m', 'Mediocentro Ofensivo', '940 min')">
+                <div class="numero-dorsal">20</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/roa.png" alt="Andrés Roa">
+                </div>
+                <div class="barra-nombre">Andrés Roa</div>
+            </div>
+            <div class="tarjeta-jugador" onclick="abrirFicha('Luis Sánchez', '10', 'Colombiano', '25 Años', '1.73 m', 'Mediocentro Ofensivo', '510 min')">
+                <div class="numero-dorsal">10</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/sanchez.png" alt="Luis Sánchez">
+                </div>
+                <div class="barra-nombre">Luis Sánchez</div>
+            </div>
+            <div class="tarjeta-jugador" onclick="abrirFicha('Jaime Alvarado', '15', 'Colombiano', '26 Años', '1.80 m', 'Centrocampista', '1,120 min')">
+                <div class="numero-dorsal">15</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/alvarado.png" alt="Jaime Alvarado">
+                </div>
+                <div class="barra-nombre">Jaime Alvarado</div>
+            </div>
+            <div class="tarjeta-jugador" onclick="abrirFicha('Jáider Quiñones', '42', 'Colombiano', '25 Años', '1.76 m', 'Mediocentro', '880 min')">
+                <div class="numero-dorsal">42</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/jader.png" alt="Jáider Quiñones">
+                </div>
+                <div class="barra-nombre">Jáider Quiñones</div>
+            </div>
+            <div class="tarjeta-jugador" onclick="abrirFicha('Iván Rojas', '5', 'Colombiano', '28 Años', '1.80 m', 'Pivote', '1,290 min')">
+                <div class="numero-dorsal">5</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/ivan-rojas.png" alt="Iván Rojas">
+                </div>
+                <div class="barra-nombre">Iván Rojas</div>
+            </div>
+            <div class="tarjeta-jugador" onclick="abrirFicha('Robert Mejía', '88', 'Colombiano', '25 Años', '1.78 m', 'Centrocampista', '1,050 min')">
+                <div class="numero-dorsal">88</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/robert-mejia.png" alt="Robert Mejía">
+                </div>
+                <div class="barra-nombre">Robert Mejía</div>
+            </div>
+            <div class="tarjeta-jugador" onclick="abrirFicha('Mateo García', '19', 'Colombiano', '27 Años', '1.74 m', 'Centrocampista', '1,310 min')">
+                <div class="numero-dorsal">19</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/mateo-garcia.png" alt="Mateo García">
+                </div>
+                <div class="barra-nombre">Mateo García</div>
+            </div>
+            <div class="tarjeta-jugador" onclick="abrirFicha('Tomás García', '22', 'Colombiano', '20 Años', '1.77 m', 'Centrocampista', '240 min')">
+                <div class="numero-dorsal">22</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/tomas.png" alt="Tomás García">
+                </div>
+                <div class="barra-nombre">Tomás García</div>
+            </div>
+            <div class="tarjeta-jugador" onclick="abrirFicha('Esteban Beltrán', '8', 'Colombiano', '23 Años', '1.75 m', 'Centrocampista', '420 min')">
+                <div class="numero-dorsal">8</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/esteban.png" alt="Esteban Beltrán">
+                </div>
+                <div class="barra-nombre">Esteban Beltrán</div>
+            </div>
+            <div class="tarjeta-jugador" onclick="abrirFicha('Rafael Acuña', '36', 'Colombiano', '19 Años', '1.76 m', 'Centrocampista', '120 min')">
+                <div class="numero-dorsal">36</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/acuna.png" alt="Rafael Acuña">
+                </div>
+                <div class="barra-nombre">Rafael Acuña</div>
+            </div>
+        </div>
+
+        <div class="contenedor-posicion">
+            <div class="titulo-posicion">Delanteros</div>
+        </div>
+        <div class="grilla-jugadores">
+            <div class="tarjeta-jugador" onclick="abrirFicha('Dayro Moreno', '17', 'Colombiano', '40 Años', '1.78 m', 'Delantero Centro y Goleador Histórico', '1,580 min')">
+                <div class="numero-dorsal">17</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/dayro.png" alt="Dayro Moreno">
+                </div>
+                <div class="barra-nombre">Dayro Moreno</div>
+            </div>
+            <div class="tarjeta-jugador" onclick="abrirFicha('Luis Pipe Gómez', '9', 'Colombiano', '26 Años', '1.75 m', 'Extremo Izquierdo', '790 min')">
+                <div class="numero-dorsal">9</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/pipe-gomez.png" alt="Luis Pipe Gómez">
+                </div>
+                <div class="barra-nombre">Luis "Pipe" Gómez</div>
+            </div>
+            <div class="tarjeta-jugador" onclick="abrirFicha('Michael Barrios', '7', 'Colombiano', '35 Años', '1.63 m', 'Extremo Derecho', '840 min')">
+                <div class="numero-dorsal">7</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/barrios.png" alt="Michael Barrios">
+                </div>
+                <div class="barra-nombre">Michael Barrios</div>
+            </div>
+            <div class="tarjeta-jugador" onclick="abrirFicha('Déinner Quiñones', '70', 'Colombiano', '30 Años', '1.72 m', 'Extremo Derecho', '620 min')">
+                <div class="numero-dorsal">70</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/deiner.png" alt="Déinner Quiñones">
+                </div>
+                <div class="barra-nombre">Déinner Quiñones</div>
+            </div>
+            <div class="tarjeta-jugador" onclick="abrirFicha('Heiliker Guzmán', '33', 'Colombo-venezolano', '21 Años', '1.80 m', 'Delantero Centro', '350 min')">
+                <div class="numero-dorsal">33</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/guzman.png" alt="Heiliker Guzmán">
+                </div>
+                <div class="barra-nombre">Heiliker Guzmán</div>
+            </div>
+            <div class="tarjeta-jugador" onclick="abrirFicha('Mateo Zuleta', '28', 'Colombiano', '23 Años', '1.80 m', 'Extremo / Delantero', '420 min')">
+                <div class="numero-dorsal">28</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/zuleta.png" alt="Mateo Zuleta">
+                </div>
+                <div class="barra-nombre">Mateo Zuleta</div>
+            </div>
+            <div class="tarjeta-jugador" onclick="abrirFicha('Yeiler Valencia', '29', 'Colombiano', '21 Años', '1.76 m', 'Extremo Derecho / Delantero', '280 min')">
+                <div class="numero-dorsal">29</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/yeiler.png" alt="Yeiler Valencia">
+                </div>
+                <div class="barra-nombre">Yeiler Valencia</div>
+            </div>
+            <div class="tarjeta-jugador" onclick="abrirFicha('Jefry Zapata', '14', 'Colombiano', '26 Años', '1.77 m', 'Extremo Izquierdo', '510 min')">
+                <div class="numero-dorsal">14</div>
+                <div class="silueta-contenedor">
+                    <img src="../imagenes/jefry.png" alt="Jefry Zapata">
+                </div>
+                <div class="barra-nombre">Jefry Zapata</div>
+            </div>
+        </div>
+    </main>
+
+    <div class="seccion-navegacion">
+    <a href="../index.html" class="btn-volver">Volver al Inicio</a>
+</div>
+
+    <footer class="footer-patrocinadores">
+        <div class="contenedor-logos">
+            <p class="texto-aliados">NUESTROS ALIADOS</p>
+            <div class="grilla-logos">
+                <div class="logo-item"><img src="../imagenes/betplay.png" alt="Sponsor"></div>
+                <div class="logo-item"><img src="../imagenes/aguardiente.png" alt="Sponsor"></div>
+                <div class="logo-item"><img src="../imagenes/chery.png" alt="Sponsor"></div>
+                <div class="logo-item"><img src="../imagenes/colanta.png" alt="Sponsor"></div>
+                <div class="logo-item"><img src="../imagenes/manizales.png" alt="Sponsor"></div>
+                <div class="logo-item"><img src="../imagenes/pool.png" alt="Sponsor"></div>
+                <div class="logo-item"><img src="../imagenes/reebok.png" alt="Sponsor"></div>
+                <div class="logo-item"><img src="../imagenes/wakate.png" alt="Sponsor"></div>
+            </div>
+            <p class="copyright">&copy; 2026 Once Caldas S.A. - Orgullo de Manizales</p>
+        </div>
+    </footer>
+
+    <div id="fichaModal" class="modal-perfil" style="display: none;">
+        <div class="contenido-modal">
+            <span class="boton-cerrar" onclick="cerrarFicha()">&times;</span>
+            <h2 id="modalNombre"></h2>
+            <p id="modalDorsal"></p>
+            <hr>
+            <p><strong>Nacionalidad:</strong> <span id="modalNacion"></span></p>
+            <p><strong>Edad:</strong> <span id="modalEdad"></span></p>
+            <p><strong>Altura:</strong> <span id="modalAltura"></span></p>
+            <p><strong>Posición:</strong> <span id="modalOrigen"></span></p>
+            <p><strong>Minutos Jugados:</strong> <span id="modalMinutos"></span></p>
+        </div>
+    </div>
+
+    <script>
+    function abrirFicha(nombre, dorsal, nacion, edad, altura, origen, minutos) {
+        if (document.getElementById('modalNombre')) document.getElementById('modalNombre').innerText = nombre;
+        if (document.getElementById('modalDorsal')) document.getElementById('modalDorsal').innerText = "Dorsal Oficial N° " + dorsal;
+        if (document.getElementById('modalNacion')) document.getElementById('modalNacion').innerText = nacion;
+        if (document.getElementById('modalEdad')) document.getElementById('modalEdad').innerText = edad;
+        if (document.getElementById('modalAltura')) document.getElementById('modalAltura').innerText = altura;
+        if (document.getElementById('modalOrigen')) document.getElementById('modalOrigen').innerText = origen;
+        if (document.getElementById('modalMinutos')) document.getElementById('modalMinutos').innerText = minutos;
+
+        var modal = document.getElementById('fichaModal');
+        if (modal) {
+            modal.classList.add('abierto');
+            modal.style.display = 'flex'; 
+        }
+    }
+
+    function cerrarFicha() {
+        var modal = document.getElementById('fichaModal');
+        if (modal) {
+            modal.classList.remove('abierto');
+            modal.style.display = 'none';
+        }
+    }
+
+    function cerrarConClickAfuera(e) {
+        var modal = document.getElementById('fichaModal');
+        if (e.target === modal) {
+            cerrarFicha();
+        }
+    }
+
+    window.onload = function() {
+        var modal = document.getElementById('fichaModal');
+        if (modal) {
+            modal.addEventListener('click', cerrarConClickAfuera);
+        }
+    };
+    </script>
+</body>
+</html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Símbolos Institucionales | Once Caldas D.A.</title>
+    
+    <style>
+        :root {
+            --verde-once: #008751;
+            --rojo-once: #ce1126;
+            --dorado-copa: #D4AF37;
+            --negro-profundo: #0f111a;
+            --negro-tarjeta: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background: var(--negro-profundo);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contenedor-principal {
+            flex: 1;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .encabezado {
+            margin-bottom: 30px;
+        }
+
+        .encabezado h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .linea-decorativa {
+            width: 80px;
+            height: 8px;
+            background: var(--dorado-copa);
+            margin: 15px auto;
+            border-radius: 4px;
+        }
+
+        .nota-historica {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            padding: 25px;
+            border-left: 4px solid var(--verde-once);
+            border-right: 4px solid var(--rojo-once);
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+        }
+
+        .nota-historica p {
+            color: #ffffff;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        .nota-historica strong {
+            color: var(--dorado-copa);
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .grilla-escudos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .tarjeta-pro {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: 0.4s;
+        }
+
+        .tarjeta-pro:hover {
+            transform: translateY(-10px);
+        }
+
+        .capa-color { height: 12px; width: 100%; }
+        .v { background: var(--verde-once); }
+        .b { background: #d1d1d1; }
+        .r { background: var(--rojo-once); }
+
+        .foto-escudo {
+            height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .foto-escudo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .pie-tarjeta {
+            padding: 30px;
+            background: var(--negro-tarjeta);
+            color: white;
+        }
+
+        .pie-tarjeta h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dorado-copa);
+            margin-bottom: 5px;
+        }
+
+        .periodo {
+            font-size: 0.8rem;
+            color: #aaaaaa;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .contenedor-boton { margin: 40px 0; }
+        .boton-pro {
+            display: inline-block;
+            padding: 18px 50px;
+            background: #ffffff;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 900;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+        .boton-pro:hover { background: var(--dorado-copa); transform: scale(1.05); }
+
+         .footer-patrocinadores {
+    background-color: rgba(5, 60, 110, 0.95);
+    padding: 60px 20px 30px;
+    border-top: 3px solid var(--dorado-copa);
+    margin-top: 100px;
+}
+
+.contenedor-logos {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.texto-aliados {
+    color: var(--dorado-copa);
+    letter-spacing: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 40px;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.grilla-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.logo-item img {
+    height: 60px;
+    width: auto;
+    filter: none;
+    opacity: 1;
+    transition: all 0.4s ease;
+}
+
+.logo-item img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+}
+
+.copyright {
+    color: #eeb90c;
+    font-size: 0.8rem;
+    border-top: 1px solid #eaec4f;
+    padding-top: 25px;
+    margin-top: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+@media (max-width: 640px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .contenedor-principal {
+        padding: 30px 12px !important;
+    }
+
+    .encabezado h1 {
+        font-size: 2.2rem !important;
+        letter-spacing: 0px !important;
+    }
+
+    .nota-historica {
+        padding: 15px !important;
+        margin-bottom: 35px !important;
+    }
+
+    .nota-historica p {
+        font-size: 0.95rem !important;
+    }
+
+    
+    .grilla-escudos {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 25px !important;
+        margin-bottom: 40px !important;
+    }
+
+    .tarjeta-pro {
+        width: 100% !important;
+        max-width: 360px !important;
+        border-radius: 15px !important;
+    }
+
+    .tarjeta-pro:hover {
+        transform: none !important;
+    }
+
+   
+    .foto-escudo {
+        height: 260px !important;
+        padding: 25px !important;
+    }
+
+    .pie-tarjeta {
+        padding: 20px !important;
+    }
+
+    .pie-tarjeta h2 {
+        font-size: 1.3rem !important;
+    }
+
+    .boton-pro {
+        width: 100% !important;
+        max-width: 280px;
+        padding: 15px 30px !important;
+        font-size: 0.9rem !important;
+    }
+
+    
+    .footer-patrocinadores {
+        padding: 40px 15px 20px !important;
+        margin-top: 60px !important;
+    }
+
+    .texto-aliados {
+        font-size: 0.8rem !important;
+        letter-spacing: 3px !important;
+        margin-bottom: 25px !important;
+    }
+
+    .grilla-logos {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 30px !important;
+        justify-items: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        padding: 0 10px !important;
+        box-sizing: border-box !important;
+    }
+
+    .logo-item {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        height: 50px !important;
+    }
+
+    .logo-item img {
+        max-width: 100% !important;
+        height: auto !important;
+        max-height: 45px !important;
+        object-fit: contain !important;
+    }
+
+    .logo-item img:hover {
+        transform: none !important;
+    }
+
+    .copyright {
+        margin-top: 30px !important;
+        padding-top: 20px !important;
+        font-size: 0.75rem !important;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+
+    <main class="contenedor-principal">
+        <div class="encabezado">
+            <h1>Evolución de los escudos del equipo</h1>
+            <div class="linea-decorativa"></div>
+        </div>
+
+        <div class="nota-historica">
+            <p>
+                A lo largo de nuestra gloriosa trayectoria deportiva, la institución ha mantenido una identidad sólida basada en 
+                <strong>tres escudos fundamentales</strong>. Aunque han existido variaciones estéticas por patrocinios o 
+                conmemoraciones, estos tres escudos representan la verdadera esencia histórica del Blanco Blanco de Manizales.
+            </p>
+        </div>
+
+        <div class="grilla-escudos">
+            <div class="tarjeta-pro">
+                <div class="capa-color v"></div>
+                <div class="foto-escudo"><img src="../imagenes/imagen-8.png" alt="1961"></div>
+                <div class="pie-tarjeta">
+                    <h2>1ER ESCUDO</h2>
+                    <span class="periodo">Periodo 1961</span>
+                </div>
+            </div>
+
+            <div class="tarjeta-pro">
+                <div class="capa-color b"></div>
+                <div class="foto-escudo"><img src="../imagenes/escudo1.png" alt="1990"></div>
+                <div class="pie-tarjeta">
+                    <h2>2DO ESCUDO</h2>
+                    <span class="periodo">Periodo 1990</span>
+                </div>
+            </div>
+
+            <div class="tarjeta-pro">
+                <div class="capa-color r"></div>
+                <div class="foto-escudo"><img src="../imagenes/imagen-1.png" alt="Actual"></div>
+                <div class="pie-tarjeta">
+                    <h2>ESCUDO ACTUAL</h2>
+                    <span class="periodo">Actualidad</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="contenedor-boton">
+            <a href="../index.html" class="boton-pro">REGRESAR AL INICIO</a>
+        </div>
+    </main>
+
+    <footer class="footer-patrocinadores">
+        <div class="contenedor-logos">
+            <p class="texto-aliados">NUESTROS ALIADOS</p>
+            <div class="grilla-logos">
+                <div class="logo-item"><img src="../imagenes/betplay.png" alt="Patrocinador 1"></div>
+                <div class="logo-item"><img src="../imagenes/reebok.png" alt="Patrocinador 2"></div>
+                <div class="logo-item"><img src="../imagenes/colanta.png" alt="Patrocinador 3"></div>
+                <div class="logo-item"><img src="../imagenes/aguardiente.png" alt="Patrocinador 4"></div>
+                <div class="logo-item"><img src="../imagenes/chery.png" alt="Patrocinador 5"></div>
+                <div class="logo-item"><img src="../imagenes/pool.png" alt="Patrocinador 6"></div>
+                <div class="logo-item"><img src="../imagenes/wakate.png" alt="Patrocinador 7"></div>
+                <div class="logo-item"><img src="../imagenes/manizales.png" alt="Patrocinador 8"></div>
+            </div>
+            <p class="copyright">&copy; 2026 Once Caldas S.A. - Orgullo de Manizales</p>
+        </div>
+    </footer>
+</body>
+</html>

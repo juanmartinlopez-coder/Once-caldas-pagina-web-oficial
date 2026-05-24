@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1998: Récord Histórico | Once Caldas Oficial</title>
+
+    <style>
+        :root {
+    --verde-once: #008751;
+    --blanco: #ffffff;
+    --negro-suave: #2d3436;
+    --rojo-once: #ce1126;
+    --dorado-copa: #D4AF37;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+body {
+    background-color: #000000; 
+    color: var(--blanco);
+    line-height: 1.6;
+}
+
+
+header {
+    background-color: var(--verde-once);
+    padding: 12px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    border-bottom: 3px solid var(--blanco);
+}
+
+.navbar {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    font-weight: 800;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.img-logo {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.navbar ul li a:hover {
+    color: var(--rojo-once);
+    transition: 0.3s;
+}
+
+.dropdown {
+    position: relative;
+    padding-bottom: 20px; 
+    margin-bottom: -20px;
+}
+
+.dropdown-content {
+    display: none !important;
+    position: absolute;
+    background-color: #111;
+    min-width: 250px;
+    top: 100%;
+    right: 0;
+    z-index: 9999;
+    flex-direction: column !important;
+    padding: 5px 0;
+    border-bottom: 4px solid var(--rojo-once);
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.5);
+}
+
+.dropdown:hover .dropdown-content {
+    display: flex !important;
+}
+
+.dropdown-content li {
+    width: 100%;
+    display: block ;
+}
+
+.dropdown-content li a {
+    color: white ;
+    padding: 18px 25px;
+    display: block ;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: all 0.2s ease;
+    margin-left: 0 !important; 
+}
+
+.dropdown-content li a:hover {
+    background-color: #1a1a1a ;
+    color: var(--rojo-once) ;
+    padding-left: 30px;
+}
+
+.banner-oficial {
+    height: 300px;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('../imagenes/imagen-6.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    border-bottom: 5px solid var(--verde-once);
+}
+
+.tag-oficial {
+    background: var(--rojo-once);
+    padding: 5px 15px;
+    font-weight: bold;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.contenedor-principal {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.tarjeta-oficial {
+    background: white;
+    color: #111;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.grid-tecnico {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+}
+
+.col-visual { padding: 30px; background: #fdfdfd; }
+.foto-plantilla { width: 100%; border-radius: 8px; }
+
+.ficha-datos {
+    margin-top: 25px;
+    padding: 20px;
+    background: #f1f1f1;
+    border-left: 5px solid var(--verde-once);
+}
+
+.col-info { padding: 50px; display: flex; flex-direction: column; justify-content: center; }
+
+.indicadores-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.indicador {
+    background: var(--verde-once);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    border-radius: 6px;
+}
+
+.indicador .cifra { display: block; font-size: 1.8rem; font-weight: 900; }
+
+.boton-volver {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #000;
+    color: var(--dorado-copa) !important;
+    border: 2px solid var(--dorado-copa);
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.4s;
+    margin-top: 20px;
+}
+
+.boton-volver:hover{
+background: var(--dorado-copa); 
+    color: black !important; 
+}
+
+ .footer-patrocinadores {
+    background-color: rgba(5, 60, 110, 0.95);
+    padding: 60px 20px 30px;
+    border-top: 3px solid var(--dorado-copa);
+    margin-top: 100px;
+}
+
+.contenedor-logos {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.texto-aliados {
+    color: var(--dorado-copa);
+    letter-spacing: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 40px;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.grilla-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.logo-item img {
+    height: 60px;
+    width: auto;
+    filter: none;
+    opacity: 1;
+    transition: all 0.4s ease;
+}
+
+.logo-item img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+}
+
+.copyright {
+    color: #eeb90c;
+    font-size: 0.8rem;
+    border-top: 1px solid #eaec4f;
+    padding-top: 25px;
+    margin-top: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+@media (max-width: 640px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    header {
+        padding: 8px 0;
+    }
+
+    .navbar {
+        width: 100%;
+        padding: 0 10px;
+        flex-direction: column !important;
+        gap: 12px;
+        box-sizing: border-box;
+    }
+
+    .logo {
+        font-size: 1.1rem !important;
+        gap: 8px !important;
+        margin: 5px 0;
+    }
+
+    .img-logo {
+        height: 45px !important;
+    }
+
+    .navbar ul {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        gap: 0 !important;
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
+    .navbar ul li a {
+        margin-left: 0 !important;
+        padding: 8px 10px !important;
+        font-size: 0.8rem !important;
+    }
+
+    .dropdown-content {
+        position: fixed !important;
+        top: auto !important;
+        left: 5% !important;
+        right: 5% !important;
+        width: 90% !important;
+        box-shadow: 0px 10px 25px rgba(0,0,0,0.6) !important;
+    }
+
+    
+    .banner-oficial {
+        height: 200px !important;
+        padding: 0 20px !important;
+        background-position: center !important;
+    }
+
+    .banner-oficial h1 {
+        font-size: 1.8rem !important;
+    }
+
+    .contenedor-principal {
+        margin: 20px auto !important;
+        padding: 0 12px !important;
+    }
+
+    
+    .grid-tecnico {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .col-visual {
+        padding: 15px !important;
+    }
+
+    .foto-plantilla {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .ficha-datos {
+        margin-top: 15px !important;
+        padding: 15px !important;
+    }
+
+    .col-info {
+        padding: 25px 20px !important;
+    }
+
+
+    .indicadores-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+        margin: 20px 0 !important;
+    }
+
+    .indicador {
+        padding: 12px !important;
+    }
+
+    .indicador .cifra {
+        font-size: 1.6rem !important;
+    }
+
+    .boton-volver {
+        width: 100% !important;
+        padding: 12px 20px !important;
+        font-size: 0.9rem !important;
+    }
+
+
+    .footer-patrocinadores {
+        padding: 40px 15px 20px !important;
+        margin-top: 60px !important;
+    }
+
+    .texto-aliados {
+        font-size: 0.8rem !important;
+        letter-spacing: 3px !important;
+        margin-bottom: 25px !important;
+    }
+
+    .grilla-logos {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 30px !important;
+        justify-items: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        padding: 0 10px !important;
+        box-sizing: border-box !important;
+    }
+
+    .logo-item {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        height: 50px !important;
+    }
+
+    .logo-item img {
+        max-width: 100% !important;
+        height: auto !important;
+        max-height: 45px !important;
+        object-fit: contain !important;
+    }
+
+    .logo-item img:hover {
+        transform: none !important;
+    }
+
+    .copyright {
+        margin-top: 30px !important;
+        padding-top: 20px !important;
+        font-size: 0.75rem !important;
+    }
+}
+
+
+
+
+    </style>
+</head>
+<body>
+
+
+    <section class="banner-oficial">
+        <div class="banner-info">
+            <span class="tag-oficial">Archivo Histórico</span>
+            <h1>Temporada 1998: El Récord de los 110 Puntos</h1>
+        </div>
+    </section>
+
+    <main class="contenedor-principal">
+        <div class="tarjeta-oficial">
+            <div class="grid-tecnico">
+                <div class="col-visual">
+                    <img src="../imagenes/campana.png" alt="Plantilla Once Caldas 1998" class="foto-plantilla">
+                    <div class="ficha-datos">
+                        <h3>Reporte de Plantilla</h3>
+                        <p><strong>Cuerpo Técnico:</strong> Javier Álvarez / Luis F. Montoya</p>
+                        <p><strong>Máximo Anotador:</strong> Sergio Galván Rey (31 Goles)</p>
+                        <p><strong>Valla menos vencida:</strong> Juan Carlos Henao</p>
+                        <p><strong>Esquema Táctico:</strong> 4-4-2 Diamante</p>
+                    </div>
+                </div>
+
+                <div class="col-info">
+                    <h2>Análisis de Rendimiento</h2>
+                    <p>La campaña de 1998 es reconocida técnicamente como el estándar de oro en torneos largos del FPC. El Once Caldas finalizó como líder absoluto de la reclasificación, estableciendo una marca histórica de 110 puntos gracias a un modelo de juego basado en la presión alta y la efectividad ofensiva.</p>
+                    
+                    <div class="indicadores-grid">
+                        <div class="indicador">
+                            <span class="cifra">110</span>
+                            <small>Pts Totales</small>
+                        </div>
+                        <div class="indicador">
+                            <span class="cifra">72%</span>
+                            <small>Rendimiento</small>
+                        </div>
+                        <div class="indicador">
+                            <span class="cifra">1°</span>
+                            <small>Posición</small>
+                        </div>
+                    </div>
+
+                    <p>Este desempeño estadístico permitió al club regresar a la Copa Libertadores de América, sentando las bases competitivas para la década más laureada en la historia de la institución.</p>
+                    
+                    <a href="../index.html" class="boton-volver">Regresar al Inicio</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-patrocinadores">
+        <p class="texto-aliados">Nuestros Aliados Estratégicos</p>
+        <div class="grilla-logos">
+            <div class="logo-item"><img src="../imagenes/betplay.png" alt="Sponsor"></div>
+            <div class="logo-item"><img src="../imagenes/aguardiente.png" alt="Sponsor"></div>
+            <div class="logo-item"><img src="../imagenes/chery.png" alt="Sponsor"></div>
+            <div class="logo-item"><img src="../imagenes/colanta.png" alt="Sponsor"></div>
+            <div class="logo-item"><img src="../imagenes/manizales.png" alt="Sponsor"></div>
+            <div class="logo-item"><img src="../imagenes/pool.png" alt="Sponsor"></div>
+            <div class="logo-item"><img src="../imagenes/reebok.png" alt="Sponsor"></div>
+            <div class="logo-item"><img src="../imagenes/wakate.png" alt="Sponsor"></div>
+        </div>
+        <p class="copyright">© 2026 Once Caldas D.A. - Orgullo de Manizales</p>
+    </footer>
+</body>
+</html>
+

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grandes Ídolos | Once Caldas D.A.</title>
+   
+    <style>
+        
+:root {
+    --verde-once: #008751;
+    --rojo-once: #ce1126;
+    --dorado-copa: #D4AF37;
+    --negro-profundo: #0a0b10;
+    --negro-tarjeta: #12141d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background: var(--negro-profundo);
+    color: white;
+}
+.encabezado h1 {
+    font-size: 5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    background: linear-gradient(to bottom, #ffffff 40%, #999999);
+    letter-spacing: -3px;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.linea-decorativa {
+    width: 100px;
+    height: 5px;
+    background: var(--dorado-copa);
+    margin: 0 auto 40px; 
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+.nota-historica {
+    max-width: 900px;
+    margin: 0 auto 60px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+}
+
+.nota-historica p {
+    color: #eeeeee;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.nota-historica p strong {
+    color: var(--dorado-copa);
+    font-weight: 800;
+}
+
+.contenedor-principal {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+.encabezado h1 {
+    font-size: 4.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    background: linear-gradient(to bottom, #ffffff, #999);
+    -webkit-background-clip: text;
+background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -2px;
+}
+
+.linea-decorativa {
+    width: 60px;
+    height: 4px;
+    background: var(--dorado-copa);
+    margin: 10px auto 60px;
+}
+
+.grilla-idolos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.tarjeta-idolo {
+    background: var(--negro-tarjeta);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    width: 360px;
+}
+
+.tarjeta-idolo:hover {
+    transform: translateY(-12px);
+    border: 1px solid var(--dorado-copa);
+}
+
+.foto-idolo {
+    width: 100%;
+    height: 400px;
+}
+
+.foto-idolo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info-idolo {
+    padding: 25px;
+    text-align: center;
+}
+
+.info-idolo h2 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.info-idolo span {
+    color: var(--dorado-copa);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.info-idolo p {
+    color: #888;
+    font-size: 0.85rem;
+    margin-top: 15px;
+    line-height: 1.5;
+}
+
+.contenedor-boton {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 80px 0;
+}
+
+.boton-pro {
+    display: inline-block;
+    padding: 18px 45px;
+    background: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 800;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s ease;
+    border: 2px solid #ffffff;
+}
+
+.boton-pro:hover {
+    background: var(--dorado-copa);
+    border-color: var(--dorado-copa);
+    color: white;
+}
+        
+
+
+         .footer-patrocinadores {
+    background-color: rgba(5, 60, 110, 0.95);
+    padding: 60px 20px 30px;
+    border-top: 3px solid var(--dorado-copa);
+    margin-top: 100px;
+}
+
+.contenedor-logos {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.texto-aliados {
+    color: var(--dorado-copa);
+    letter-spacing: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 40px;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.grilla-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.logo-item img {
+    height: 60px;
+    width: auto;
+    filter: none;
+    opacity: 1;
+    transition: all 0.4s ease;
+}
+
+.logo-item img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+}
+
+.copyright {
+    color: #eeb90c;
+    font-size: 0.8rem;
+    border-top: 1px solid #eaec4f;
+    padding-top: 25px;
+    margin-top: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+@media (max-width: 640px) {
+    body {
+        overflow-x: hidden;
+    }
+
+   
+    .contenedor-principal {
+        padding: 40px 12px !important;
+    }
+
+   
+    .encabezado h1 {
+        font-size: 2.5rem !important;
+        letter-spacing: -1px !important;
+        line-height: 1.1 !important;
+    }
+
+    .linea-decorativa {
+        margin: 10px auto 30px !important;
+    }
+
+    
+    .nota-historica {
+        padding: 20px 15px !important;
+        margin: 0 auto 40px !important;
+    }
+
+    .nota-historica p {
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+    }
+
+    
+    .grilla-idolos {
+        gap: 20px !important;
+    }
+
+    
+    .tarjeta-idolo {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    
+    .foto-idolo {
+        height: 300px !important;
+    }
+
+    .tarjeta-idolo:hover {
+        transform: translateY(-5px) !important; 
+    }
+
+    .info-idolo {
+        padding: 20px 15px !important;
+    }
+
+    .info-idolo h2 {
+        font-size: 1.25rem !important;
+    }
+
+    
+    .contenedor-boton {
+        padding: 40px 0 !important;
+    }
+
+    .boton-pro {
+        width: 100% !important;
+        max-width: 280px;
+        padding: 15px 20px !important;
+        font-size: 0.9rem !important;
+        text-align: center;
+    }
+
+    
+    .footer-patrocinadores {
+        padding: 40px 15px 20px !important;
+        margin-top: 60px !important;
+    }
+
+    .texto-aliados {
+        font-size: 0.8rem !important;
+        letter-spacing: 3px !important;
+        margin-bottom: 25px !important;
+    }
+
+    .grilla-logos {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 30px !important;
+        justify-items: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        padding: 0 10px !important;
+        box-sizing: border-box !important;
+    }
+
+    .logo-item {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        height: 50px !important;
+    }
+
+    .logo-item img {
+        max-width: 100% !important;
+        height: auto !important;
+        max-height: 45px !important;
+        object-fit: contain !important;
+    }
+
+    .logo-item img:hover {
+        transform: none !important;
+    }
+
+    .copyright {
+        margin-top: 30px !important;
+        padding-top: 20px !important;
+        font-size: 0.75rem !important;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+
+    <main class="contenedor-principal">
+        <div class="encabezado">
+            <h1>Grandes Ídolos</h1>
+            <div class="linea-decorativa"></div>
+        </div>
+
+        <div class="nota-historica">
+            <p>Homenaje a las leyendas que han forjado la historia del <strong>Once Caldas</strong>. Hombres que con garra y talento nos llevaron a la cima de América y marcaron la historia.</p>
+        </div>
+
+        <div class="grilla-idolos">
+            <div class="tarjeta-idolo">
+                <div class="foto-idolo">
+                    <img src="../imagenes/henao.png" alt="Juan Carlos Henao">
+                </div>
+                <div class="info-idolo">
+                    <h2>Juan Carlos Henao</h2>
+                    <span>PORTERO / LEYENDA</span>
+                    <p>"El héroe de la Libertadores 2004"</p>
+                </div>
+            </div>
+
+           <div class="tarjeta-idolo">
+                <div class="foto-idolo">
+                    <img src="../imagenes/galvan.png" alt="Sergio Galván Rey">
+                </div>
+                <div class="info-idolo" style="border-top-color: #f1f0e8;">
+                    <h2>Sergio Galván Rey</h2>
+                    <span>DELANTERO / GOLEADOR</span>
+                    <p>"Máximo anotador histórico"</p>
+                </div>
+            </div>
+
+            <div class="tarjeta-idolo">
+                <div class="foto-idolo">
+                    <img src="../imagenes/viafara.png" alt="Jhon Viáfara">
+                </div>
+                <div class="info-idolo" style="border-top-color: var(--rojo-once);">
+                    <h2>Jhon Viáfara</h2>
+                    <span>VOLANTE / CAMPEÓN</span>
+                    <p>"Autor del gol ante Boca Juniors"</p>
+                </div>
+            </div>
+
+            <div class="tarjeta-idolo">
+                <div class="foto-idolo">
+                    <img src="../imagenes/valentierra.png" alt="Arnulfo Valentierra">
+                </div>
+                <div class="info-idolo" style="border-top-color: #ffffff;">
+                    <h2>Arnulfo Valentierra</h2>
+                    <span>VOLANTE / CREATIVO</span>
+                    <p>"El 10 de la zurda prodigiosa"</p>
+                </div>
+            </div>
+
+            <div class="tarjeta-idolo">
+                <div class="foto-idolo">
+                    <img src="../imagenes/dayro-moreno.png" alt="Dayro Moreno">
+                </div>
+                <div class="info-idolo" style="border-top-color: #ffffff;">
+                    <h2>Dayro Moreno</h2>
+                    <span>DELANTERO / INCORREGIBLE</span>
+                    <p>"Leyenda y Goleador Histórico FPC"</p>
+                </div>
+            </div>
+
+            <div class="tarjeta-idolo">
+                <div class="foto-idolo">
+                    <img src="../imagenes/samuel-vanegas.png" alt="Samuel Vanegas">
+                </div>
+                <div class="info-idolo" style="border-top-color: #ffffff;">
+                    <h2>Samuel Vanegas</h2>
+                    <span>DEFENSA / LEYENDA</span>
+                    <p>"La muralla, el patrón del área."</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contenedor-boton">
+            <a href="../index.html" class="boton-pro">REGRESAR AL INICIO</a>
+        </div>
+    </main>
+
+    <footer class="footer-patrocinadores">
+        <div class="contenedor-logos">
+            <p class="texto-aliados">NUESTROS ALIADOS</p>
+            <div class="grilla-logos">
+                <div class="logo-item"><img src="../imagenes/betplay.png" alt="BetPlay"></div>
+                <div class="logo-item"><img src="../imagenes/reebok.png" alt="Reebok"></div>
+                <div class="logo-item"><img src="../imagenes/colanta.png" alt="Colanta"></div>
+                <div class="logo-item"><img src="../imagenes/aguardiente.png" alt="Aguardiente"></div>
+                <div class="logo-item"><img src="../imagenes/chery.png" alt="Chery"></div>
+                <div class="logo-item"><img src="../imagenes/pool.png" alt="Pool"></div>
+                <div class="logo-item"><img src="../imagenes/wakate.png" alt="Wakate"></div>
+                <div class="logo-item"><img src="../imagenes/manizales.png" alt="Manizales"></div>
+            </div>
+            <p class="copyright">&copy; 2026 Once Caldas S.A. - Orgullo de Manizales</p>
+        </div>
+    </footer>
+
+</body>
+</html>

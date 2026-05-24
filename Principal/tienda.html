@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Oficial | Once Caldas</title>
+    
+    <style>
+        .barra-volver-tienda {
+    max-width: 1200px;
+    margin: 30px auto 0 auto;
+    padding: 0 20px;
+}
+
+.btn-volver-solito {
+    display: inline-block;
+    background-color: #008751;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-volver-solito:hover {
+    background-color: #D4AF37;
+    transform: translateX(-3px);
+}
+
+.contenedor-tienda {
+    max-width: 1200px;
+    margin: 20px auto 40px auto;
+    padding: 0 20px;
+}
+
+.banner-tienda {
+    background-color: #008751;
+    border-left: 8px solid #D4AF37;
+    padding: 40px;
+    border-radius: 12px;
+    color: #ffffff;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.banner-tienda h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin: 0 0 10px 0;
+    letter-spacing: 2px;
+}
+
+.banner-tienda p {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 35px;
+}
+
+.tarjeta-producto {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjeta-producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
+.imagen-prod {
+    background-color: #f8f9fa;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.imagen-prod img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.info-prod {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.info-prod h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+    color: #0a0b10;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.info-prod .precio {
+    font-size: 1.3rem;
+    color: #008751;
+    font-weight: 800;
+    margin: 0 0 20px 0;
+}
+
+.btn-comprar {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background-color: #008751;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-comprar:hover {
+    background-color: #D4AF37;
+    color: #ffffff;
+}
+.footer-patrocinadores {
+    background-color: rgba(5, 60, 110, 0.95);
+    padding: 60px 20px 30px;
+    border-top: 3px solid var(--dorado-copa);
+    margin-top: 100px;
+}
+
+.contenedor-logos {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.texto-aliados {
+    color: var(--dorado-copa);
+    letter-spacing: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 40px;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.grilla-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.logo-item img {
+    height: 60px;
+    width: auto;
+    filter: none;
+    opacity: 1;
+    transition: all 0.4s ease;
+}
+
+.logo-item img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+}
+
+.copyright {
+    color: #eeb90c;
+    font-size: 0.8rem;
+    border-top: 1px solid #eaec4f;
+    padding-top: 25px;
+    margin-top: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .contenedor-tienda {
+        padding: 0 10px !important;
+        margin: 10px auto 20px auto !important;
+    }
+
+    .banner-tienda {
+        padding: 20px !important;
+        margin-bottom: 25px !important;
+        border-left: 6px solid #D4AF37 !important;
+        text-align: center;
+    }
+
+    .banner-tienda h1 {
+        font-size: 1.6rem !important;
+        letter-spacing: 1px !important;
+    }
+
+    .banner-tienda p {
+        font-size: 0.9rem !important;
+        margin-bottom: 15px !important;
+    }
+
+    .banner-tienda div button {
+        width: 100% !important;
+        max-width: 200px;
+        padding: 8px 15px !important;
+        font-size: 0.85rem !important;
+    }
+
+    .grid-productos {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+    }
+
+    .tarjeta-producto {
+        border-radius: 8px !important;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
+    }
+
+    .imagen-prod {
+        height: 160px !important;
+        padding: 10px !important;
+    }
+
+    .info-prod {
+        padding: 12px !important;
+    }
+
+    .info-prod h3 {
+        font-size: 0.85rem !important;
+        margin-bottom: 6px !important;
+        min-height: 34px !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .info-prod .precio {
+        font-size: 1rem !important;
+        margin-bottom: 12px !important;
+    }
+
+    .btn-comprar {
+        padding: 10px 5px !important;
+        font-size: 0.75rem !important;
+        letter-spacing: 0.5px !important;
+        border-radius: 4px !important;
+    }
+
+    .barra-volver-tienda {
+        margin: 25px auto 0 auto !important;
+        padding: 0 10px !important;
+        text-align: center;
+    }
+
+    .btn-volver-solito {
+        width: 100% !important;
+        max-width: 260px;
+        padding: 12px 20px !important;
+        font-size: 0.9rem !important;
+        text-align: center;
+    }
+
+    .footer-patrocinadores {
+        padding: 40px 15px 20px !important;
+        margin-top: 60px !important;
+    }
+
+    .texto-aliados {
+        font-size: 0.8rem !important;
+        letter-spacing: 3px !important;
+        margin-bottom: 25px !important;
+    }
+
+    .grilla-logos {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 30px !important;
+        justify-items: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        padding: 0 10px !important;
+        box-sizing: border-box !important;
+    }
+
+    .logo-item {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        height: 50px !important;
+    }
+
+    .logo-item img {
+        max-width: 100% !important;
+        height: auto !important;
+        max-height: 45px !important;
+        object-fit: contain !important;
+    }
+
+    .logo-item img:hover {
+        transform: none !important;
+    }
+
+    .copyright {
+        margin-top: 30px !important;
+        padding-top: 20px !important;
+        font-size: 0.75rem !important;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+
+    
+
+    <main class="contenedor-tienda">
+    <div class="banner-tienda">
+        <h1>TIENDA DEL CLUB</h1>
+        <p>La indumentaria oficial del blanco blanco de Manizales</p>
+        <div>
+            <button style="background: #008751; color: white; border: none; padding: 10px 20px; font-weight: bold; border-radius: 20px;">
+                🛒 Mi Carrito (<span id="contador-productos">0</span>)
+            </button>
+        </div>
+    </div>
+
+    <section class="grid-productos">
+        <div class="tarjeta-producto">
+            <div class="imagen-prod">
+                <img src="../imagenes/camiseta.png" alt="Camiseta Local">
+            </div>
+            <div class="info-prod">
+                <h3 class="nombre-prod">Camiseta Oficial Local</h3>
+                <p class="precio" data-valor="100000">$100.000</p>
+                <button class="btn-comprar">Comprar</button>
+            </div>
+        </div>
+
+        <div class="tarjeta-producto">
+            <div class="imagen-prod">
+                <img src="../imagenes/visitante.png" alt="Camiseta Visitante">
+            </div>
+            <div class="info-prod">
+                <h3 class="nombre-prod">Camiseta Visitante</h3>
+                <p class="precio" data-valor="100000">$100.000</p>
+                <button class="btn-comprar">Comprar</button>
+            </div>
+        </div>
+
+        <div class="tarjeta-producto">
+            <div class="imagen-prod">
+                <img src="../imagenes/gorra.png" alt="Gorra Albo">
+            </div>
+            <div class="info-prod">
+                <h3 class="nombre-prod">Gorra Oficial Once Caldas</h3>
+                <p class="precio" data-valor="30000">$30.000</p>
+                <button class="btn-comprar">Comprar</button>
+            </div>
+        </div>
+
+        <div class="tarjeta-producto">
+            <div class="imagen-prod">
+                <img src="../imagenes/chaqueta.png" alt="Chaqueta Presentacion">
+            </div>
+            <div class="info-prod">
+                <h3 class="nombre-prod">Chaqueta de Presentación</h3>
+                <p class="precio" data-valor="80000">$80.000</p>
+                <button class="btn-comprar">Comprar</button>
+            </div>
+        </div>
+
+        <div class="tarjeta-producto">
+            <div class="imagen-prod">
+                <img src="../imagenes/termo.png" alt="Termos Once Caldas">
+            </div>
+            <div class="info-prod">
+                <h3 class="nombre-prod">Termos Once Caldas</h3>
+                <p class="precio" data-valor="50000">$50.000</p>
+                <button class="btn-comprar">Comprar</button>
+            </div>
+        </div>
+
+        <div class="tarjeta-producto">
+            <div class="imagen-prod">
+                <img src="../imagenes/tazas.png" alt="Tazas">
+            </div>
+            <div class="info-prod">
+                <h3 class="nombre-prod">Tazas</h3>
+                <p class="precio" data-valor="25000">$25.000</p>
+                <button class="btn-comprar">Comprar</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="barra-volver-tienda">
+        <a href="../index.html" class="btn-volver-solito">⬅ Volver al Inicio</a>
+    </div>
+</main>
+
+<footer class="footer-patrocinadores">
+    <div class="contenedor-logos">
+        <p class="texto-aliados">NUESTROS ALIADOS</p>
+        <div class="grilla-logos">
+            <div class="logo-item">
+                <img src="../imagenes/betplay.png" alt="Patrocinador 1">
+            </div>
+            <div class="logo-item">
+                <img src="../imagenes/reebok.png" alt="Patrocinador 2">
+            </div>
+            <div class="logo-item">
+                <img src="../imagenes/colanta.png" alt="Patrocinador 3">
+            </div>
+            <div class="logo-item">
+                <img src="../imagenes/aguardiente.png" alt="Patrocinador 4">
+            </div>
+            <div class="logo-item">
+                <img src="../imagenes/chery.png" alt="Patrocinador 5">
+            </div>
+            <div class="logo-item">
+                <img src="../imagenes/pool.png" alt="Patrocinador 6">
+            </div>
+            <div class="logo-item">
+                <img src="../imagenes/wakate.png" alt="Patrocinador 7">
+            </div>
+            <div class="logo-item">
+                <img src="../imagenes/manizales.png" alt="Patrocinador 8">
+            </div>
+        </div>
+        <p class="copyright">&copy; 2026 Once Caldas S.A. - Orgullo de Manizales</p>
+    </div>
+</footer>
+
+<script>
+        let carrito = [];
+let totalPrecio = 0;
+
+
+const botonesComprar = document.querySelectorAll('.btn-comprar');
+const contadorElemento = document.getElementById('contador-productos');
+
+
+botonesComprar.forEach(boton => {
+    boton.addEventListener('click', (e) => {
+       
+        const tarjeta = e.target.closest('.tarjeta-producto');
+        const nombre = tarjeta.querySelector('.nombre-prod').innerText;
+        const precio = parseInt(tarjeta.querySelector('.precio').getAttribute('data-valor'));
+
+       
+        const confirmar = confirm(`¿Está seguro que quiere agregar "${nombre}" al carrito?`);
+
+        
+        if (confirmar) {
+            
+            carrito.push({ nombre, precio });
+            totalPrecio += precio;
+            
+        
+            if (contadorElemento) {
+                contadorElemento.innerText = carrito.length;
+            }
+            
+            alert(`¡Listo! Se agregó al carrito.\nTotal acumulado: $${totalPrecio.toLocaleString()}`);
+        } 
+       
+        else {
+            
+            alert("Acción cancelada. El producto no se agregó.");
+        }
+    });
+});
+    </script>
+</body>
+</html>

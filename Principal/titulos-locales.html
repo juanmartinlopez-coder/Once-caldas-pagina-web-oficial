@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Once Caldas - Títulos Locales</title>
+    <link rel="stylesheet" href="responsive.css">
+    <style>
+        :root {
+            --verde-once: #008751;
+            --verde-oscuro: #005a36;
+            --rojo-once: #ce1126;
+            --dorado-copa: #D4AF37;
+            --negro-profundo: #0a0a0a;
+            --blanco-puro: #ffffff;
+        }
+
+        body {
+    background-color: #000000; 
+    background-image: none ; 
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--blanco-puro);
+}
+
+        .hero-locales {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../imagenes/imagen-17.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 5px solid var(--dorado-copa);
+        }
+
+        .hero-locales h1 {
+            font-size: 4rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin: 0;
+            border: 3px solid var(--blanco-puro);
+            padding: 20px 40px;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(8px);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+        }
+
+        .contenedor-principal {
+            max-width: 1100px;
+            margin: -60px auto 100px;
+            padding: 0 20px;
+        }
+
+        .parrafo-seccion {
+            display: flex;
+            background: var(--blanco-puro);
+            margin-bottom: 60px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            border-top: 5px solid var(--verde-once);
+            border-bottom: 5px solid var(--rojo-once);
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            min-height: 450px;
+            align-items: stretch;
+        }
+
+        .parrafo-seccion:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 40px 80px rgba(0, 135, 81, 0.25);
+        }
+
+        .texto-momento {
+            flex: 1;
+            padding: 50px;
+            color: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .capitulo {
+            color: var(--verde-once);
+            font-weight: 900;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .texto-momento h2 {
+            font-size: 2.6rem;
+            margin: 10px 0;
+            color: #000;
+            line-height: 1.1;
+        }
+
+        .decoracion-dorada {
+            width: 70px;
+            height: 4px;
+            background: var(--dorado-copa);
+            margin-bottom: 25px;
+        }
+
+        .texto-momento p {
+            line-height: 1.8;
+            font-size: 1.15rem;
+            color: #333;
+            text-align: justify;
+            margin: 0;
+        }
+
+        .foto-momento {
+            flex: 1.3;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .foto-momento img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 15px;
+            box-sizing: border-box;
+            transition: transform 0.8s ease;
+        }
+
+        .parrafo-seccion:hover .foto-momento img {
+            transform: scale(1.1);
+        }
+
+        .contenedor-boton {
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        .boton-volver {
+            display: inline-block;
+            padding: 22px 70px;
+            background: transparent;
+            color: var(--dorado-copa) !important;
+            border: 2px solid var(--dorado-copa);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.3rem;
+            transition: all 0.4s ease;
+            letter-spacing: 3px;
+            border-radius: 5px;
+            text-transform: uppercase;
+        }
+
+        .boton-volver:hover {
+            background: var(--dorado-copa);
+            color: black !important;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+
+         .footer-patrocinadores {
+    background-color: rgba(5, 60, 110, 0.95);
+    padding: 60px 20px 30px;
+    border-top: 3px solid var(--dorado-copa);
+    margin-top: 100px;
+}
+
+.contenedor-logos {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.texto-aliados {
+    color: var(--dorado-copa);
+    letter-spacing: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 40px;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.grilla-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.logo-item img {
+    height: 60px;
+    width: auto;
+    filter: none;
+    opacity: 1;
+    transition: all 0.4s ease;
+}
+
+.logo-item img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+}
+
+.copyright {
+    color: #eeb90c;
+    font-size: 0.8rem;
+    border-top: 1px solid #eaec4f;
+    padding-top: 25px;
+    margin-top: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .hero-locales {
+        height: 220px !important;
+        background-attachment: scroll !important;
+    }
+
+    .hero-locales h1 {
+        font-size: 1.8rem !important;
+        letter-spacing: 2px !important;
+        padding: 10px 20px !important;
+    }
+
+    .contenedor-principal {
+        margin: -30px auto 40px !important;
+        padding: 0 15px !important;
+    }
+
+    .parrafo-seccion {
+        flex-direction: column !important;
+        min-height: auto !important;
+        margin-bottom: 30px !important;
+    }
+
+    .foto-momento {
+        order: 1 !important;
+        flex: none !important;
+        height: 200px !important;
+    }
+
+    .foto-momento img {
+        padding: 10px !important;
+    }
+
+    .texto-momento {
+        order: 2 !important;
+        flex: none !important;
+        padding: 25px 20px !important;
+    }
+
+    .capitulo {
+        font-size: 0.75rem !important;
+        letter-spacing: 1px !important;
+    }
+
+    .texto-momento h2 {
+        font-size: 1.6rem !important;
+        margin: 5px 0 10px 0 !important;
+    }
+
+    .decoracion-dorada {
+        margin-bottom: 15px !important;
+    }
+
+    .texto-momento p {
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+        text-align: left !important;
+    }
+
+    .contenedor-boton {
+        margin-bottom: 50px !important;
+    }
+
+    .boton-volver {
+        width: 100% !important;
+        max-width: 260px;
+        padding: 15px 30px !important;
+        font-size: 0.95rem !important;
+        letter-spacing: 2px !important;
+    }
+
+    .footer-patrocinadores {
+        padding: 40px 15px 20px !important;
+        margin-top: 60px !important;
+    }
+
+    .texto-aliados {
+        font-size: 0.8rem !important;
+        letter-spacing: 3px !important;
+        margin-bottom: 25px !important;
+    }
+
+    .grilla-logos {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 30px !important;
+        justify-items: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        padding: 0 10px !important;
+        box-sizing: border-box !important;
+    }
+
+    .logo-item {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        height: 50px !important;
+    }
+
+    .logo-item img {
+        max-width: 100% !important;
+        height: auto !important;
+        max-height: 45px !important;
+        object-fit: contain !important;
+    }
+
+    .logo-item img:hover {
+        transform: none !important;
+    }
+
+    .copyright {
+        margin-top: 30px !important;
+        padding-top: 20px !important;
+        font-size: 0.75rem !important;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+
+    <header class="hero-locales">
+        <h1>Gloria Nacional</h1>
+    </header>
+
+    <main class="contenedor-principal">
+
+        <section class="parrafo-seccion">
+            <div class="texto-momento">
+                <span class="capitulo">La Primera Estrella</span>
+                <h2>Campeón 1950</h2>
+                <div class="decoracion-dorada"></div>
+                <p>Bajo el nombre de Deportes Caldas, Manizales conquistó su primer título nacional. Una campaña histórica que puso la primera semilla de grandeza en el corazón de la ciudad.</p>
+            </div>
+            <div class="foto-momento">
+                <img src="../imagenes/imagen-14.png" alt="Título 1950">
+            </div>
+        </section>
+
+        <section class="parrafo-seccion">
+            <div class="texto-momento">
+                <span class="capitulo">La Segunda Estrella</span>
+                <h2>Campeón 2003</h2>
+                <div class="decoracion-dorada"></div>
+                <p>De la mano de Luis Fernando Montoya, el Blanco Blanco rompió una sequía de 53 años. Fue el equipo que le enseñó a Colombia cómo se juega con orden y corazón.</p>
+            </div>
+            <div class="foto-momento">
+                <img src="../imagenes/imagen-15.png" alt="Título 2003">
+            </div>
+        </section>
+
+        <section class="parrafo-seccion">
+            <div class="texto-momento">
+                <span class="capitulo">La Tercera Estrella</span>
+                <h2>Campeón 2009</h2>
+                <div class="decoracion-dorada"></div>
+                <p>Una final inolvidable contra el Junior de Barranquilla. El Once demostró que su casta de campeón estaba más viva que nunca, bordando otra estrella dorada en el escudo.</p>
+            </div>
+            <div class="foto-momento">
+                <img src="../imagenes/imagen-16.png" alt="Título 2009">
+            </div>
+        </section>
+
+        <section class="parrafo-seccion">
+            <div class="texto-momento">
+                <span class="capitulo">La Cuarta Estrella</span>
+                <h2>Campeón 2010</h2>
+                <div class="decoracion-dorada"></div>
+                <p>El cierre de una década de oro. Contra el Tolima, el equipo ratificó por qué es uno de los grandes del país, logrando su cuarta estrella en una noche mágica en el Palogrande.</p>
+            </div>
+            <div class="foto-momento">
+                <img src="../imagenes/imagen-17.png" alt="Título 2010">
+            </div>
+        </section>
+
+        <div class="contenedor-boton">
+            <a href="../index.html" class="boton-volver">Volver al Inicio</a>
+        </div>
+
+    </main>
+    
+    <footer class="footer-patrocinadores">
+    <div class="contenedor-logos">
+        <p class="texto-aliados">NUESTROS ALIADOS</p>
+        <div class="grilla-logos">
+            <div class="logo-item">
+                <img src="../imagenes/betplay.png" alt="Patrocinador 1">
+            </div>
+            <div class="logo-item">
+                <img src="../imagenes/reebok.png" alt="Patrocinador 2">
+            </div>
+            <div class="logo-item">
+                <img src="../imagenes/colanta.png" alt="Patrocinador 3">
+            </div>
+            <div class="logo-item">
+                <img src="../imagenes/aguardiente.png" alt="Patrocinador 4">
+            </div>
+            <div class="logo-item">
+                <img src="../imagenes/chery.png" alt="Patrocinador 5">
+            </div>
+            <div class="logo-item">
+                <img src="../imagenes/pool.png" alt="Patrocinador 6">
+            </div>
+            <div class="logo-item">
+                <img src="../imagenes/wakate.png" alt="Patrocinador 7">
+            </div>
+            <div class="logo-item">
+                <img src="../imagenes/manizales.png" alt="Patrocinador 8">
+            </div>
+        </div>
+        <p class="copyright">&copy; 2026 Once Caldas S.A. - Orgullo de Manizales</p>
+    </div>
+</footer>
+
+</body>
+</html>

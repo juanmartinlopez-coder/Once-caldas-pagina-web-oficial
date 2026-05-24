@@ -1,0 +1,473 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balance Histórico - Once Caldas</title>
+    
+    <style>
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        
+        .banner-estadisticas {
+            background-color: #008751;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .banner-estadisticas h1 {
+            margin: 0;
+            font-size: 2.3rem;
+            letter-spacing: 1px;
+        }
+
+        .banner-estadisticas p {
+            margin: 10px 0 0 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        
+        .contenedor-cronologia {
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        
+        .titulo-epoca {
+            background-color: #005c36;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.3rem;
+            margin-top: 40px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+
+        
+        .tarjeta-año {
+            background-color: white;
+            border-left: 5px solid #008751;
+            border-radius: 0 8px 8px 0;
+            margin: 15px 0;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        
+        .tarjeta-año.campeon {
+            border-left: 5px solid #d4af37; 
+            background-color: #fffdf3; 
+        }
+
+        
+        .ano-titulo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #111;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .campeon-badge {
+            background-color: #d4af37;
+            color: white;
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        .info-item {
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: #555;
+        }
+
+        .info-item strong {
+            color: #222;
+        }
+
+        
+        .seccion-navegacion {
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .btn-volver {
+            display: inline-block;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            font-weight: bold;
+            border-radius: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-volver:hover {
+            background-color: #008751;
+        }
+
+
+        .footer-patrocinadores {
+    background-color: rgba(5, 60, 110, 0.95);
+    padding: 60px 20px 30px;
+    border-top: 3px solid var(--dorado-copa);
+    margin-top: 100px;
+}
+
+.contenedor-logos {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.texto-aliados {
+    color: var(--dorado-copa);
+    letter-spacing: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 40px;
+    opacity: 0.8;
+}
+
+.grilla-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.logo-item img {
+    height: 60px;
+    width: auto;
+    filter: none;
+    opacity: 1;
+    transition: all 0.4s ease;
+}
+
+.logo-item img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+}
+
+.copyright {
+    color: #eeb90c;
+    font-size: 0.8rem;
+    border-top: 1px solid #eaec4f;
+    padding-top: 25px;
+    margin-top: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+        @media (max-width: 640px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    
+    .banner-estadisticas {
+        padding: 30px 15px !important;
+    }
+
+    .banner-estadisticas h1 {
+        font-size: 1.6rem !important;
+        line-height: 1.2;
+    }
+
+    .banner-estadisticas p {
+        font-size: 0.95rem !important;
+        margin-top: 8px !important;
+    }
+
+    
+    .contenedor-cronologia {
+        margin: 20px auto !important;
+        padding: 0 12px !important;
+    }
+
+    
+    .titulo-epoca {
+        font-size: 1.05rem !important;
+        padding: 10px 15px !important;
+        margin-top: 25px !important;
+    }
+
+    
+    .tarjeta-año {
+        padding: 15px !important;
+        margin: 12px 0 !important;
+        gap: 8px !important;
+    }
+
+   
+    .ano-titulo {
+        font-size: 1.1rem !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 6px !important;
+    }
+
+    .campeon-badge {
+        font-size: 0.7rem !important;
+        padding: 2px 8px !important;
+        display: inline-block !important;
+    }
+
+    .info-item {
+        font-size: 0.88rem !important;
+        line-height: 1.5 !important;
+    }
+
+    
+    .seccion-navegacion {
+        margin: 40px 0 !important;
+    }
+
+    .btn-volver {
+        width: 100% !important;
+        max-width: 280px;
+        padding: 14px 20px !important;
+        font-size: 0.9rem !important;
+        text-align: center;
+    }
+
+    
+    .footer-patrocinadores {
+        padding: 40px 15px 20px !important;
+        margin-top: 60px !important;
+    }
+
+    .texto-aliados {
+        font-size: 0.8rem !important;
+        letter-spacing: 3px !important;
+        margin-bottom: 25px !important;
+    }
+
+    .grilla-logos {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 30px !important;
+        justify-items: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        padding: 0 10px !important;
+        box-sizing: border-box !important;
+    }
+
+    .logo-item {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        height: 50px !important;
+    }
+
+    .logo-item img {
+        max-width: 100% !important;
+        height: auto !important;
+        max-height: 45px !important;
+        object-fit: contain !important;
+    }
+
+    .logo-item img:hover {
+        transform: none !important;
+    }
+
+    .copyright {
+        margin-top: 30px !important;
+        padding-top: 20px !important;
+        font-size: 0.75rem !important;
+    }
+}
+
+        
+    </style>
+</head>
+<body>
+
+    <div class="banner-estadisticas">
+        <h1>BALANCE HISTÓRICO POR TEMPORADAS</h1>
+        <p>Resumen del rendimiento y sucesos del Once Caldas año por año desde el 2000</p>
+    </div>
+
+    <div class="contenedor-cronologia">
+
+        <div class="titulo-epoca">🏆 2000 - 2009: La Era de Oro Continental</div>
+
+        <div class="tarjeta-año">
+            <div class="ano-titulo">Año 2000</div>
+            <div class="info-item"><strong>Liga Colombiana:</strong> Fase regular del campeonato nacional.</div>
+            <div class="info-item"><strong>Hecho Destacado:</strong> Consolidación de la base de jugadores que marcaría la historia del club en el nuevo siglo.</div>
+        </div>
+
+        <div class="tarjeta-año">
+            <div class="ano-titulo">Año 2001</div>
+            <div class="info-item"><strong>Liga Colombiana:</strong> Subcampeón del Torneo Finalización.</div>
+            <div class="info-item"><strong>Hecho Destacado:</strong> Gran campaña local, cayendo en la serie final ante el América de Cali.</div>
+        </div>
+
+        <div class="tarjeta-año">
+            <div class="ano-titulo">Año 2002</div>
+            <div class="info-item"><strong>Liga Colombiana:</strong> Fase de grupos.</div>
+            <div class="info-item"><strong>Competición Internacional:</strong> Copa Libertadores de América.</div>
+            <div class="info-item"><strong>Hecho Destacado:</strong> Retorno oficial de la institución al máximo torneo de clubes del continente.</div>
+        </div>
+
+        <div class="tarjeta-año campeon">
+            <div class="ano-titulo">Año 2003 <span class="campeon-badge">⭐ ESTRELLA LOCAL</span></div>
+            <div class="info-item"><strong>Liga Colombiana:</strong> CAMPEÓN del Torneo Apertura.</div>
+            <div class="info-item"><strong>Hecho Destacado:</strong> El club rompe una sequía de 60 años sin títulos locales de la mano del profesor Luis Fernando Montoya.</div>
+        </div>
+
+        <div class="tarjeta-año campeon">
+            <div class="ano-titulo">Año 2004 <span class="campeon-badge">🏆 CAMPEÓN DE AMÉRICA</span></div>
+            <div class="info-item"><strong>Liga Colombiana:</strong> Clasificado a fases finales del torneo local.</div>
+            <div class="info-item"><strong>Competición Internacional:</strong> Copa Libertadores y Copa Intercontinental.</div>
+            <div class="info-item"><strong>Hecho Destacado:</strong> Gesta histórica mundial. Campeón de la Copa Libertadores tras derrotar a Boca Juniors en Manizales y finalista del mundo ante Porto en Japón.</div>
+        </div>
+
+        <div class="tarjeta-año">
+            <div class="ano-titulo">Año 2005</div>
+            <div class="info-item"><strong>Liga Colombiana:</strong> Fase de cuadrangulares semifinales.</div>
+            <div class="info-item"><strong>Competición Internacional:</strong> Copa Libertadores y Recopa Sudamericana.</div>
+            <div class="info-item"><strong>Hecho Destacado:</strong> Disputa internacional de la Recopa Sudamericana frente a Boca Juniors de Argentina.</div>
+        </div>
+
+        <div class="tarjeta-año campeon">
+            <div class="ano-titulo">Año 2009 <span class="campeon-badge">⭐ ESTRELLA LOCAL</span></div>
+            <div class="info-item"><strong>Liga Colombiana:</strong> CAMPEÓN del Torneo Apertura.</div>
+            <div class="info-item"><strong>Hecho Destacado:</strong> Conquista de la tercera estrella nacional tras derrotar en una gran final al Junior de Barranquilla.</div>
+        </div>
+
+
+        <div class="titulo-epoca">👕 2010 - 2019: Estrellas Locales y Transición</div>
+
+        <div class="tarjeta-año campeon">
+            <div class="ano-titulo">Año 2010 <span class="campeon-badge">⭐ ESTRELLA LOCAL</span></div>
+            <div class="info-item"><strong>Liga Colombiana:</strong> CAMPEÓN del Torneo Finalización.</div>
+            <div class="info-item"><strong>Competición Internacional:</strong> Copa Libertadores de América.</div>
+            <div class="info-item"><strong>Hecho Destacado:</strong> El Blanco Blanco consigue su cuarta estrella en el Estadio Palogrande derrotando al Deportes Tolima.</div>
+        </div>
+
+        <div class="tarjeta-año">
+            <div class="ano-titulo">Año 2011</div>
+            <div class="info-item"><strong>Liga Colombiana:</strong> Subcampeón del Torneo Finalización.</div>
+            <div class="info-item"><strong>Competición Internacional:</strong> Copa Libertadores (Cuartos de final).</div>
+            <div class="info-item"><strong>Hecho Destacado:</strong> Impresionante campaña en Libertadores eliminando al campeón vigente Cruzeiro en Brasil.</div>
+        </div>
+
+        <div class="tarjeta-año">
+            <div class="ano-titulo">Año 2016</div>
+            <div class="info-item"><strong>Liga Colombiana:</strong> Fase regular del campeonato.</div>
+            <div class="info-item"><strong>Hecho Destacado:</strong> Retiro oficial de las canchas del máximo guardameta e ídolo de la institución, Juan Carlos Henao.</div>
+        </div>
+
+        <div class="tarjeta-año">
+            <div class="ano-titulo">Año 2018</div>
+            <div class="info-item"><strong>Liga Colombiana:</strong> Clasificado a fases finales de liga.</div>
+            <div class="info-item"><strong>Copa Colombia:</strong> Subcampeón del torneo de Copa.</div>
+            <div class="info-item"><strong>Hecho Destacado:</strong> Finalista de la Copa Colombia frente a Atlético Nacional, asegurando el regreso a torneos internacionales.</div>
+        </div>
+
+        <div class="tarjeta-año">
+            <div class="ano-titulo">Año 2018</div>
+            <div class="info-item"><strong>Liga Colombiana:</strong> Clasificado a fases finales de liga.</div>
+            <div class="info-item"><strong>Copa Colombia:</strong> Subcampeón del torneo de Copa.</div>
+            <div class="info-item"><strong>Hecho Destacado:</strong> Finalista de la Copa Colombia frente a Atlético Nacional, asegurando el regreso a torneos internacionales.</div>
+        </div>
+
+        
+<div class="tarjeta-año">
+            <div class="ano-titulo">Año 2019</div>
+            <div class="info-item"><strong>Liga Colombiana:</strong> Competencia regular en los torneos Apertura y Finalización.</div>
+            <div class="info-item"><strong>Competición Internacional:</strong> Copa CONMEBOL Sudamericana.</div>
+            <div class="info-item"><strong>Hecho Destacado:</strong> Participación internacional del club en la primera fase de la Copa Sudamericana enfrentando a Deportivo Santaní de Paraguay.</div>
+        </div>
+
+        <div class="titulo-epoca">📊 2020 - 2026: Récords Históricos y Actualidad</div>
+
+        <div class="tarjeta-año">
+            <div class="ano-titulo">Año 2020</div>
+            <div class="info-item"><strong>Liga Colombiana:</strong> Campeonato unificado (Liga BetPlay) debido a la emergencia sanitaria global.</div>
+            <div class="info-item"><strong>Hecho Destacado:</strong> El fútbol profesional se reactiva bajo estrictos protocolos de bioseguridad a puerta cerrada en el Palogrande, manteniendo la competencia en un año atípico.</div>
+        </div>
+
+        <div class="tarjeta-año">
+            <div class="ano-titulo">Año 2021</div>
+            <div class="info-item"><strong>Liga Colombiana:</strong> Torneos Apertura y Finalización en semestres de alta exigencia.</div>
+
+            <div class="tarjeta-año">
+            <div class="ano-titulo">Año 2022</div>
+            <div class="info-item"><strong>Liga Colombiana:</strong> Fase regular del campeonato profesional con alta competencia local.</div>
+            <div class="info-item"><strong>Hecho Destacado:</strong> El club lucha hasta las últimas fechas de la fase 'todos contra todos' buscando el ingreso a los cuadrangulares semifinales.</div>
+        </div>
+
+        <div class="tarjeta-año">
+            <div class="ano-titulo">Año 2023</div>
+            <div class="info-item"><strong>Liga Colombiana:</strong> Torneo de transición y reestructuración de la plantilla profesional.</div>
+            <div class="info-item"><strong>Hecho Destacado:</strong> Llegada de la dirección técnica mundialista al banco blanco y el inicio del proceso de consolidación de cara a los objetivos del 2024.</div>
+        </div>
+
+        <div class="tarjeta-año">
+            <div class="ano-titulo">Año 2024</div>
+            <div class="info-item"><strong>Liga Colombiana:</strong> Clasificación a cuadrangulares semifinales.</div>
+            <div class="info-item"><strong>Hecho Destacado:</strong> El delantero Dayro Moreno hace historia al convertirse en el máximo goleador de todos los tiempos del fútbol profesional colombiano.</div>
+        </div>
+
+        <div class="tarjeta-año">
+            <div class="ano-titulo">Año 2025</div>
+            <div class="info-item"><strong>Liga Colombiana:</strong> Clasificación estable a las fases definitivas del torneo.</div>
+            <div class="info-item"><strong>Competición Internacional:</strong> Copa CONMEBOL Sudamericana.</div>
+            <div class="info-item"><strong>Hecho Destacado:</strong> Regreso oficial del equipo a la competencia internacional continental organizada por la CONMEBOL.</div>
+        </div>
+
+        <div class="tarjeta-año">
+            <div class="ano-titulo">Año 2026</div>
+            <div class="info-item"><strong>Liga Colombiana:</strong> Cuartos de Final (Fase Final).</div>
+            <div class="info-item"><strong>Hecho Destacado:</strong> El equipo firma una gran campaña competitiva en el torneo; cae luchando en la llave de cuartos de final ante Junior de Barranquilla.</div>
+        </div>
+
+    </div>
+
+    <div class="seccion-navegacion">
+        <a href="../index.html" class="btn-volver">⬅ Volver al Menú Principal</a>
+    </div>
+    <footer class="footer-patrocinadores">
+        <div class="contenedor-logos">
+            <p class="texto-aliados">NUESTROS ALIADOS</p>
+            <div class="grilla-logos">
+                <div class="logo-item"><img src="../imagenes/betplay.png" alt="BetPlay"></div>
+                <div class="logo-item"><img src="../imagenes/reebok.png" alt="Reebok"></div>
+                <div class="logo-item"><img src="../imagenes/colanta.png" alt="Colanta"></div>
+                <div class="logo-item"><img src="../imagenes/aguardiente.png" alt="Aguardiente"></div>
+                <div class="logo-item"><img src="../imagenes/chery.png" alt="Chery"></div>
+                <div class="logo-item"><img src="../imagenes/pool.png" alt="Pool"></div>
+                <div class="logo-item"><img src="../imagenes/wakate.png" alt="Wakate"></div>
+                <div class="logo-item"><img src="../imagenes/manizales.png" alt="Manizales"></div>
+            </div>
+            <p class="copyright">&copy; 2026 Once Caldas S.A. - Orgullo de Manizales</p>
+        </div>
+    </footer>
+
+</body>
+</html>
